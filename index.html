@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NICE SHIRT v0.2.0 — The Second City Grad Revue</title>
-<meta name="app-version" content="0.2.0">
+<title>NICE SHIRT v0.2.1 — The Second City Grad Revue</title>
+<meta name="app-version" content="0.2.1">
 <meta name="description" content="NICE SHIRT brings The Second City Grad Revue to the stage with original sketch comedy developed from weeks of improv and process shows. Tickets for Sept 8, 14 and 21 at the Chicago e.t.c. Theater.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://niceshirt.rizzo.cc/">
@@ -303,8 +303,10 @@ dialog.bio::backdrop{background:rgba(0,0,0,.7);backdrop-filter:blur(3px)}
 .program .cred b{color:var(--gold);font-size:11px;letter-spacing:.26em;text-transform:uppercase;margin-right:8px}
 
 /* ---------- venue ---------- */
-.venue{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:start}
-@media (max-width:820px){.venue{grid-template-columns:1fr}}
+.venue{columns:2;column-gap:24px}
+@media (max-width:820px){.venue{columns:1}}
+.venue > *{break-inside:avoid;margin-bottom:12px}
+.venue > .venue-photo{margin-bottom:14px}
 .venue-photo{
   border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);
   background:
@@ -318,7 +320,6 @@ dialog.bio::backdrop{background:rgba(0,0,0,.7);backdrop-filter:blur(3px)}
   font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#fff;font-weight:700;
   background:linear-gradient(180deg,transparent,rgba(0,0,0,.75));
 }
-.facts{display:grid;gap:12px}
 .fact{
   background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px 16px;
   display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:start;
@@ -328,7 +329,7 @@ dialog.bio::backdrop{background:rgba(0,0,0,.7);backdrop-filter:blur(3px)}
 .fact span{color:var(--muted);font-size:14px}
 .fact a{color:var(--blue-2);text-decoration:none;border-bottom:1px solid rgba(124,192,255,.35)}
 .fact a:hover{border-bottom-color:var(--blue-2)}
-.seating{margin-top:24px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px}
+.seating{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px}
 .seating h3{font-family:var(--display);font-size:22px;letter-spacing:.05em;color:#fff;margin-bottom:8px}
 .seating p{color:var(--muted);font-size:15px}
 .seating p+p{margin-top:8px}
@@ -462,7 +463,6 @@ footer a:hover{color:#fff}
       <h2>The Second City <span class="accent">e.t.c. Theater</span></h2>
       <p class="lead">A 158-seat cabaret-style room on the second floor of Piper's Alley, right next to the Mainstage.</p>
       <div class="venue">
-        <div>
           <div id="venue-photo"></div>
           <div class="seating">
             <h3>Seating</h3>
@@ -470,8 +470,6 @@ footer a:hover{color:#fff}
             <p>The tables are close together because it's a nightclub. You'll always be seated with the people you came with, but expect to make some new friends, too.</p>
             <p>The room holds 158: 47 premium, 76 general admission and 35 value seats, plus ADA seating.</p>
           </div>
-        </div>
-        <div class="facts">
           <div class="fact">
             <svg viewBox="0 0 24 24"><path d="M12 22s7-7.1 7-12a7 7 0 0 0-14 0c0 4.9 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
             <div><b>Address</b><span><a href="https://maps.google.com/?q=230+W+North+Ave,+Chicago,+IL+60614" target="_blank" rel="noopener">230 W. North Ave., 2nd Floor<br>Chicago, IL 60614</a></span></div>
@@ -500,7 +498,6 @@ footer a:hover{color:#fff}
             <svg viewBox="0 0 24 24"><path d="M12 3v18M7 7l5-4 5 4M5 12h14M7 17l5 4 5-4"/></svg>
             <div><b>Bring a jacket</b><span>The theater runs cold on purpose. A couple hundred people in a small room raise the temperature 8 to 12 degrees fast, and the cast is under hot lights and moving the whole time.</span></div>
           </div>
-        </div>
       </div>
     </div>
   </section>
@@ -522,13 +519,13 @@ footer a:hover{color:#fff}
 <footer>
   <div class="wrap">
     NICE SHIRT &middot; The Second City Grad Revue &middot; Chicago e.t.c. Theater
-    <span class="ver">v0.2.0</span>
+    <span class="ver">v0.2.1</span>
     <div style="margin-top:8px"><a href="https://rizzo.cc/">rizzo.cc</a></div>
   </div>
 </footer>
 
 <script>
-const APP_VERSION = '0.2.0';
+const APP_VERSION = '0.2.1';
 document.title = 'NICE SHIRT v' + APP_VERSION + ' — The Second City Grad Revue';
 
 /* One entry per performance. Chicago time (CDT = -05:00 through early November). */
