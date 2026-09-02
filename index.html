@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NICE SHIRT v0.5.1 — The Second City Grad Revue | Sketch Comedy at the Chicago e.t.c. Theater</title>
-<meta name="app-version" content="0.5.1">
+<title>NICE SHIRT v0.5.2 — The Second City Grad Revue | Sketch Comedy at the Chicago e.t.c. Theater</title>
+<meta name="app-version" content="0.5.2">
 <meta name="description" content="NICE SHIRT is The Second City Grad Revue: original sketch comedy from the Conservatory graduating class, live at the Chicago e.t.c. Theater in Old Town. Shows Sept 8, 14 and 21, 2026. Tickets $12, cast, bios, programs and venue info.">
 <meta name="keywords" content="NICE SHIRT, Second City, Second City Grad Revue, Second City Training Center, Conservatory Graduation Show, sketch comedy Chicago, improv Chicago, e.t.c. Theater, Old Town Chicago comedy, Waiting for the Punchline, comedy show tickets September 2026">
 <meta name="author" content="NICE SHIRT cast">
@@ -173,8 +173,10 @@ h2 .accent{color:var(--blue)}
 .shows{display:grid;gap:12px}
 .shows-cols{display:grid;grid-template-columns:1fr;gap:34px}
 @media (min-width:900px){
-  .shows-cols{grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+  .shows-cols{grid-template-columns:1fr 1fr;gap:28px;align-items:stretch}
   .col-preview{order:0}.col-run{order:1}
+  .shows-col{display:flex;flex-direction:column}
+  .shows{flex:1;grid-auto-rows:1fr}
 }
 .col-title{font-family:var(--display);font-size:26px;letter-spacing:.05em;color:#fff;line-height:1;margin-bottom:6px}
 .col-title .accent{color:var(--blue)}
@@ -435,7 +437,7 @@ footer a:hover{color:#fff}
       </div>
 
       <div class="ensemble" id="punchline">
-        <h3 class="ens-title">WAITING FOR THE <span class="accent">PUNCHLINE</span></h3>
+        <h3 class="ens-title">WAITING FOR THE PUNCHLINE</h3>
         <p class="ens-sub">The other Grad Revue ensemble on the bill.</p>
         <div class="cast" id="punchline-grid"></div>
         <div class="team" id="team-wp"></div>
@@ -564,13 +566,13 @@ footer a:hover{color:#fff}
 <footer>
   <div class="wrap">
     NICE SHIRT &middot; The Second City Grad Revue &middot; Chicago e.t.c. Theater
-    <span class="ver">v0.5.1</span>
+    <span class="ver">v0.5.2</span>
     <div style="margin-top:8px"><a href="https://rizzo.cc/">rizzo.cc</a></div>
   </div>
 </footer>
 
 <script>
-const APP_VERSION = '0.5.1';
+const APP_VERSION = '0.5.2';
 document.title = 'NICE SHIRT v' + APP_VERSION + ' — The Second City Grad Revue | Sketch Comedy at the Chicago e.t.c. Theater';
 
 /* One entry per performance. Chicago time (CDT = -05:00 through early November). */
