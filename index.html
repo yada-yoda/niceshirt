@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NICE SHIRT v0.1.0 — The Second City Grad Revue</title>
-<meta name="app-version" content="0.1.0">
+<title>NICE SHIRT v0.2.0 — The Second City Grad Revue</title>
+<meta name="app-version" content="0.2.0">
 <meta name="description" content="NICE SHIRT brings The Second City Grad Revue to the stage with original sketch comedy developed from weeks of improv and process shows. Tickets for Sept 8, 14 and 21 at the Chicago e.t.c. Theater.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://niceshirt.rizzo.cc/">
@@ -219,6 +219,57 @@ h2 .accent{color:var(--blue)}
 .team .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px 18px}
 .team .role{font-size:11px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
 .team .name{font-size:18px;font-weight:700;color:#fff;margin-top:4px}
+.team .card.has-bio{cursor:pointer;transition:border-color .15s ease}
+.team .card.has-bio:hover{border-color:var(--blue)}
+.team .card .more,.person .more{font-size:11px;color:var(--blue-2);letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-top:6px}
+.person.has-bio{cursor:pointer}
+.person{background:none;border:0;padding:0;font:inherit;width:100%}
+.names button{font:inherit;cursor:pointer;color:#fff}
+.names button:hover{border-color:var(--blue)}
+
+/* ---------- bio dialog ---------- */
+dialog.bio{
+  position:fixed;inset:0;margin:auto;
+  background:var(--card);color:var(--text);border:1px solid var(--line-2);border-radius:var(--radius);
+  padding:0;max-width:min(640px,calc(100vw - 32px));width:100%;max-height:calc(100vh - 32px);overflow:auto;
+  box-shadow:0 30px 80px rgba(0,0,0,.6);
+}
+dialog.bio::backdrop{background:rgba(0,0,0,.7);backdrop-filter:blur(3px)}
+.bio-inner{display:grid;grid-template-columns:160px 1fr;gap:22px;padding:26px}
+@media (max-width:520px){.bio-inner{grid-template-columns:1fr}.bio-inner .ph{width:120px}}
+.bio-inner .ph{aspect-ratio:199/270;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--card-2)}
+.bio-inner .ph img{width:100%;height:100%;object-fit:cover}
+.bio-inner .ph:empty{display:none}
+.bio-inner.no-photo{grid-template-columns:1fr}
+.bio-inner h3{font-family:var(--display);font-size:26px;letter-spacing:.05em;color:#fff;line-height:1.1}
+.bio-inner .sub{margin:4px 0 12px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.bio-inner .sub em{font-style:normal;color:var(--dim);letter-spacing:.06em;text-transform:none;font-weight:500}
+.bio-inner p{color:var(--muted);font-size:15px}
+.bio-inner p+p{margin-top:10px}
+.bio-inner .links{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
+.bio-inner .links a{
+  font-size:12px;font-weight:700;letter-spacing:.08em;text-decoration:none;color:#fff;
+  border:1px solid var(--line-2);border-radius:999px;padding:7px 12px;
+}
+.bio-inner .links a:hover{border-color:var(--blue);color:var(--blue-2)}
+.bio-close{
+  position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,.08);border:1px solid var(--line);color:#fff;cursor:pointer;font-size:18px;line-height:1;
+}
+.bio-close:hover{background:rgba(255,255,255,.16)}
+
+/* ---------- programs ---------- */
+.programs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:22px}
+.pdf{
+  display:block;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px;
+  text-decoration:none;color:inherit;transition:border-color .15s ease,transform .15s ease;
+}
+.pdf:hover{border-color:var(--blue);transform:translateY(-2px)}
+.pdf img{width:100%;height:auto;border-radius:8px;border:1px solid var(--line-2);margin-bottom:12px}
+.pdf .t{font-family:var(--display);font-size:20px;letter-spacing:.05em;color:#fff;line-height:1.1}
+.pdf .s{color:var(--muted);font-size:13px;margin-top:4px}
+.pdf .b{margin-top:8px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--blue-2)}
 
 /* ---------- second group ---------- */
 .names{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
@@ -233,6 +284,9 @@ h2 .accent{color:var(--blue)}
 .about p+p{margin-top:10px}
 .about .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
 .about .card h3{font-family:var(--display);font-size:24px;letter-spacing:.05em;color:var(--blue);margin-bottom:10px}
+.quip{font-family:'Georgia','Times New Roman',serif;font-style:italic;color:var(--gold);font-size:19px;letter-spacing:.01em}
+.about .card .quip{margin:-4px 0 12px}
+.hero-quip{margin-top:14px;font-size:22px;text-shadow:0 2px 12px rgba(0,0,0,.6)}
 .defs{list-style:none;display:grid;gap:10px}
 .defs li{color:var(--muted)}
 .defs b{color:#fff;display:block;font-size:14px;letter-spacing:.04em}
@@ -241,8 +295,8 @@ h2 .accent{color:var(--blue)}
   background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;
 }
 @media (max-width:640px){.program{grid-template-columns:1fr}}
-.program a{display:block;border-radius:10px;overflow:hidden;border:1px solid var(--line-2)}
-.program img{width:100%;height:auto}
+.program > a{display:block;border-radius:10px;overflow:hidden;border:1px solid var(--line-2)}
+.program > a img{width:100%;height:auto}
 .program h3{font-family:var(--display);font-size:24px;letter-spacing:.05em;color:#fff;margin-bottom:8px}
 .program p{color:var(--muted)}
 .program .cred{margin-top:12px;display:grid;gap:4px;font-size:14px;color:var(--muted)}
@@ -312,6 +366,7 @@ footer a:hover{color:#fff}
       <span class="kicker">The Second City Training Center presents</span>
       <h1 class="title">NICE SHIRT</h1>
       <p class="sub"><strong>The Second City Grad Revue.</strong> Original sketch comedy developed from weeks of improv and process shows, now on the e.t.c. stage.</p>
+      <p class="quip hero-quip">"Would you rather it be mean?"</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#tickets">Get Tickets</a>
         <a class="btn btn-ghost" href="#cast">Meet the Cast</a>
@@ -342,11 +397,7 @@ footer a:hover{color:#fff}
       <p class="lead">Nine performers who turned improv into a finished sketch revue.</p>
       <div class="cast" id="cast-grid"></div>
 
-      <div class="team">
-        <div class="card"><div class="role">Director</div><div class="name">Jeff Bouthiette</div></div>
-        <div class="card"><div class="role">Music Director</div><div class="name">Darwin Noguera</div></div>
-        <div class="card"><div class="role">Stage Manager</div><div class="name">Vicky Diaz-Escobar</div></div>
-      </div>
+      <div class="team" id="team-ns"></div>
     </div>
   </section>
 
@@ -354,28 +405,26 @@ footer a:hover{color:#fff}
     <div class="wrap">
       <div class="eyebrow">Also on the bill</div>
       <h2>WAITING FOR THE <span class="accent">PUNCHLINE</span></h2>
-      <p class="lead">The other Grad Revue ensemble sharing the night. One ticket covers both revues.</p>
+      <p class="lead">The other Grad Revue ensemble sharing the night. One ticket covers both revues. Tap a name for a bio.</p>
       <div class="names" id="punchline-names"></div>
-      <div class="team">
-        <div class="card"><div class="role">Director</div><div class="name">Jess Mitolo</div></div>
-        <div class="card"><div class="role">Music Director</div><div class="name">Darwin Noguera</div></div>
-        <div class="card"><div class="role">Stage Manager</div><div class="name">Vicky Diaz-Escobar</div></div>
-      </div>
+      <div class="team" id="team-wp"></div>
     </div>
   </section>
 
   <section id="about">
     <div class="wrap">
       <div class="eyebrow">About the show</div>
-      <h2>What is a <span class="accent">Grad Revue?</span></h2>
+      <h2>What is <span class="accent">this show?</span></h2>
       <div class="about">
         <div class="card">
           <h3>NICE SHIRT</h3>
-          <p>Come experience NICE SHIRT, The Second City Grad Revue! Developed over weeks of process shows, the cast turned improv into original sketch comedy, and now they're bringing the finished revue to the stage.</p>
+          <p class="quip">"Would you rather it be mean?"</p>
+          <p>NICE SHIRT is The Second City Grad Revue: a night of original sketch comedy written and performed by the nine people in the cast above. Over weeks of process shows the cast improvised, kept what landed, and rewrote it into finished scenes, songs and blackouts. What you'll see is the revue that came out the other end.</p>
         </div>
         <div class="card">
-          <h3>Grad Revue 3</h3>
-          <p>Come out to the Training Center on Monday nights for performances by Grad Revue 3 students. Sets include a mixture of original scenes and blackouts created by the ensembles as well as some improvisation. These students are at the end of their Grad Revue training, culminating in a final graduate show.</p>
+          <h3>The Grad Revue</h3>
+          <p>The Second City Conservatory is an advanced six-level program dedicated to using improvisation as a tool to create a Second City-style revue, the cornerstone of The Second City Training Center. Students build on the fundamentals of improv, advance their scenic and character skills, explore forms and styles, and learn how to turn improvised scenes into written material for a satiric comedy revue.</p>
+          <p>Grad Revue 3 is the last level. Its ensembles perform Monday nights at the Training Center, with sets that mix original scenes and blackouts with some improvisation, and the run ends with a final graduation show. This is that show.</p>
         </div>
         <div class="card">
           <h3>Sketch, not skits</h3>
@@ -388,14 +437,19 @@ footer a:hover{color:#fff}
         </div>
       </div>
       <div class="program">
-        <a href="assets/playbill.jpg" target="_blank" rel="noopener" title="Open the full-size program"><img src="assets/playbill.jpg" alt="NICE SHIRT program: cast headshots, creative team and show dates" loading="lazy" width="900" height="1164"></a>
+        <a href="assets/playbill.jpg" target="_blank" rel="noopener" title="Open the full-size Playbill"><img src="assets/playbill.jpg" alt="NICE SHIRT Playbill: cast headshots, creative team and show dates" loading="lazy" width="900" height="1164"></a>
         <div>
-          <h3>The Program</h3>
-          <p>The Second City Chicago e.t.c. Theater. NICE SHIRT, featuring Alyssa Dawson, Todd Douglas, Jack Finnegan, Gerard Fogarty, Joshua Hogan, Ben House, Frank Rizzo, Cole Steeves and Primula Stonebraker.</p>
-          <div class="cred">
-            <span><b>Director</b>Jeff Bouthiette</span>
-            <span><b>Music Director</b>Darwin Noguera</span>
-            <span><b>Stage Manager</b>Vicky Diaz-Escobar</span>
+          <h3>Digital Programs</h3>
+          <p>The official programs for both revues, the same ones the QR codes at the theater point to. Cast and crew bios inside. Tap a cast card above to read a bio here without opening the PDF.</p>
+          <div class="programs">
+            <a class="pdf" href="assets/programs/nice-shirt-program.pdf" target="_blank" rel="noopener">
+              <img src="assets/programs/nice-shirt-program.jpg" alt="NICE SHIRT program cover" loading="lazy" width="544" height="704">
+              <div><div class="t">NICE SHIRT</div><div class="s">Conservatory Graduation Show program. Directed by Jeff Bouthiette.</div><div class="b">Open PDF &middot; 2 MB</div></div>
+            </a>
+            <a class="pdf" href="assets/programs/waiting-for-the-punchline-program.pdf" target="_blank" rel="noopener">
+              <img src="assets/programs/waiting-for-the-punchline-program.jpg" alt="WAITING FOR THE PUNCHLINE program cover" loading="lazy" width="544" height="704">
+              <div><div class="t">WAITING FOR THE PUNCHLINE</div><div class="s">Conservatory Graduation Show program. Directed by Jess Mitolo.</div><div class="b">Open PDF &middot; 2 MB</div></div>
+            </a>
           </div>
         </div>
       </div>
@@ -452,16 +506,29 @@ footer a:hover{color:#fff}
   </section>
 </main>
 
+<dialog class="bio" id="bio" aria-labelledby="bio-name">
+  <form method="dialog"><button class="bio-close" aria-label="Close" title="Close">&times;</button></form>
+  <div class="bio-inner">
+    <div class="ph" id="bio-photo"></div>
+    <div>
+      <h3 id="bio-name"></h3>
+      <div class="sub" id="bio-sub"></div>
+      <div id="bio-text"></div>
+      <div class="links" id="bio-links"></div>
+    </div>
+  </div>
+</dialog>
+
 <footer>
   <div class="wrap">
     NICE SHIRT &middot; The Second City Grad Revue &middot; Chicago e.t.c. Theater
-    <span class="ver">v0.1.0</span>
+    <span class="ver">v0.2.0</span>
     <div style="margin-top:8px"><a href="https://rizzo.cc/">rizzo.cc</a></div>
   </div>
 </footer>
 
 <script>
-const APP_VERSION = '0.1.0';
+const APP_VERSION = '0.2.0';
 document.title = 'NICE SHIRT v' + APP_VERSION + ' — The Second City Grad Revue';
 
 /* One entry per performance. Chicago time (CDT = -05:00 through early November). */
@@ -487,11 +554,44 @@ const CAST = [
   ['Gerard Fogarty','gerard-fogarty'],
   ['Joshua Hogan','joshua-hogan'],
   ['Ben House','ben-house'],
-  ['Frank Rizzo','frank-rizzo','https://rizzo.cc/'],
+  ['Frank Rizzo','frank-rizzo'],
   ['Cole Steeves','cole-steeves'],
   ['Primula Stonebraker','primula-stonebraker'],
 ];
 const PUNCHLINE = ['Madeline Blasingame','Alex Buckmann','Daniel Fleming','Erik Kalberg','Rachel Kiser Rucker','Michael Nicholas','Tucker Brewster Schuster','Kallie Scott','Sarah Willstein','Christopher Willumsen'];
+
+/* Creative teams. role, name */
+const TEAM_NS = [['Director','Jeff Bouthiette'],['Music Director','Darwin Noguera'],['Stage Manager','Vicky Diaz-Escobar']];
+const TEAM_WP = [['Director','Jess Mitolo'],['Music Director','Darwin Noguera'],['Stage Manager','Vicky Diaz-Escobar']];
+
+/* Bios from the official Second City digital programs. Keyed by display name.
+   pronouns, role line, paragraphs, optional links [[label, url]]. */
+const BIOS = {
+  'Todd Douglas': { pronouns:'he/him', role:'NICE SHIRT cast', text:['Todd Douglas is a Chicago-based comedian, writer, and actor originally from Indiana. A recent MFA graduate in Screenwriting from DePaul University, he has taken the stage at top venues including The Laugh Factory, Zanies, and The Comedy Bar. Todd is also currently writing and producing his own original web series.'] },
+  'Jack Finnegan': { pronouns:'he/him', role:'NICE SHIRT cast', text:['Jack Finnegan is an up and coming standup comedian originally out of Greensboro, North Carolina. Jack has been doing standup since he was in high school and moved to Chicago at 19 to pursue his comedy dreams. Jack enjoys writing, baseball, movies and TV, and music. You can find Jack performing throughout the Chicago standup scene as well as waiting for public transit.'] },
+  'Gerard Fogarty': { role:'NICE SHIRT cast', text:['Gerard Fogarty is from Wilmington, Delaware, and graduated from Columbia College Chicago with degrees in Comedy Writing and Performance and Broadcast Journalism. Before joining The Second City conservatory, he appeared in productions including the 19th Annual Punxsutawney Beauty Pageant as the piano-playing Dee Phlat and Miracle at Century High as the curmudgeonly ghost of Charles Dickens. Follow Gerard on Instagram for galavanting, catastrophizing, and cartoons!'], links:[['Instagram @gerardwfogarty','https://www.instagram.com/gerardwfogarty/']] },
+  'Joshua Hogan': { pronouns:'he/him', role:'NICE SHIRT cast', text:['Joshua Hogan is a Chicago based performer and Indiana University Alum. Josh does work across all platforms including on stage with Jeff nominated comedy "Die Hard 4 Your Luv" (Factory Theater), "Monger" (Chicago Dramatists), voice acting with Audie awarded SAG production "The Ernie Pyle Experiment", sketch shows "The Breakfast Klerb" (Second City Writing 6 Show), "New Kids On The Blockbuster" (Second City Sketch Ensembles), film work including too many indie horror/cult movies, and commercial work on "The Bear", "Harry Potter Store Chicago", and "Six Flags Great America".','Outside of performing Josh loves scuba diving, rock climbing, and painting. Joshua is represented by BNB Chicago and a proud member of AEA and PBK.'], links:[['Instagram @hoshjogan','https://www.instagram.com/hoshjogan/']] },
+  'Ben House': { role:'NICE SHIRT cast', text:['Ben House is a Comedian from Chicago, Illinois! He performs sketch, standup, and improv in various theaters around the city such as the iO, Annoyance Theater, and Second City. Ben wants to dedicate a special thanks to his partner Emma, family, coworkers, friends, magic the gathering commander pod, and cats for believing in him. He is very excited to work with a cast that values the power of stupid.'] },
+  'Frank Rizzo': { pronouns:'he/him', role:'NICE SHIRT cast', text:['Frank Rizzo is a Chicago-based actor and improviser of Italian-Irish descent with a background in marketing and computer science. He has trained at The Second City and Acting Studio Chicago. Inspired by Cassavetes, Kubrick, Bergman, Seinfeld, and mockumentary comedy, Frank brings grounded characters, sharp instincts, and the belief that improv is one giant inside joke among friends, whether the audience realizes they\'ve been included or not. He appears in the short mockumentary Waiter Boys (2025) alongside former classmates from earlier in his improv training.'], links:[['Actor site rizzo.cc','https://rizzo.cc/'],['Instagram @heyfrank','https://www.instagram.com/heyfrank/']] },
+  'Cole Steeves': { pronouns:'he/him', role:'NICE SHIRT cast', text:['Cole Steeves is an actor with experience across theater, film, commercial and interactive work. He earned his BFA in Acting from The Theatre School at DePaul University. A multi-platform performer, Steeves has appeared on stage and on screen, with credits including Candle House Collective\'s interactive thriller Claws and State Farm\'s Rookie Move campaign. FUN FACT! Cole was born in Salem, Massachusetts on July 13th, and was raised on Gallows Hill!'] },
+  'Primula Stonebraker': { pronouns:'she/her', role:'NICE SHIRT cast', text:['Prim Stonebraker is a comedian and writer from Kansas City, Missouri. She performs regularly throughout Chicago and is a member of The Wretched and iO Theater\'s first-ever Sketch House Team. She studied Digital Storytelling at Mizzou and is currently looking for a job. See photos of her English Bulldog on Instagram.'], links:[['Instagram @primstonebraker','https://www.instagram.com/primstonebraker/']] },
+
+  'Madeline Blasingame': { pronouns:'she/her', role:'WAITING FOR THE PUNCHLINE cast', text:['Maddy Blasingame was born and raised in Minnesota and got her start as a member of the improv troupe Identity Crisis at UCLA. After earning her degree in Statistics and Data Science, she pursued her childhood dream of becoming an insurance professional. Before coming to The Second City she performed at HUGE Improv Theater in Minneapolis. When she isn\'t working in Excel or performing, she can be found drinking coffee, spending time with friends, or at the beach.'], links:[['Instagram @maddyb100','https://www.instagram.com/maddyb100/']] },
+  'Alex Buckmann': { pronouns:'he/him', role:'WAITING FOR THE PUNCHLINE cast', text:['Alex Buckmann is from Merion Station, Pennsylvania and graduated with a degree in civil engineering from the University of Wisconsin-Madison. Alex went through the improv program at The Second City before joining the Conservatory. When he\'s not at The Second City, Alex can be found reading, riding his bike somewhere, or getting into all sorts of shenanigans with his friends.'] },
+  'Daniel Fleming': { pronouns:'he/him', role:'WAITING FOR THE PUNCHLINE cast', text:['Daniel moved to Chicago two years ago to continue his teaching career and pursue improv at The Second City Training Center. He is a member of Funny Business Improv, performing and opening for shows around the Chicago area. When he\'s not in the classroom or on stage, Daniel enjoys combining creativity, technology, and storytelling to connect with others.'] },
+  'Erik Kalberg': { pronouns:'he/him', role:'WAITING FOR THE PUNCHLINE cast', text:['Erik Kalberg is an Illinois native, growing up in the north suburbs of Chicago. Making his stage debut after finishing the Second City Conservatory program, he is excited to begin his career. Outside of comedy, he likes to assemble wooden puzzles.'], links:[['Instagram @eric.withacay','https://www.instagram.com/eric.withacay/']] },
+  'Rachel Kiser Rucker': { pronouns:'she/her', role:'WAITING FOR THE PUNCHLINE cast', text:['Rachel is passionate about inspiring others to discover their creative genius through music, theater, and storytelling. She has devoted her career to education, performance, and writing, sharing the transformative power of the arts with audiences around the world. Her performance credits encompass independent films and various music and theatrical productions, including her original one-woman show, Ma Voix, featured at the Hollywood Fringe Festival. Rachel is the founder of INK Theater and holds a bachelor\'s and master\'s degree in music from the University of Wisconsin–Madison.'], links:[['rachelkiser.com','https://rachelkiser.com/']] },
+  'Michael Nicholas': { role:'WAITING FOR THE PUNCHLINE cast', text:['Michael Nicholas is an actor, singer, and sandwich enthusiast, originally from Palatine, IL. He received his BA in Theatre Arts from Marquette University in 2018, where he was the proud recipient of the Chris Farley Memorial Scholarship. Since then, he\'s performed Shakespeare across Wisconsin, spent two years singing on Mississippi River paddlewheel boats, and most recently, gave architecture tours on the Chicago River. Now, he uses his expertise as a travel advisor at Travel Gallery, Inc. (take a trip!). He sincerely hopes you enjoy the show!'] },
+  'Tucker Brewster Schuster': { pronouns:'he/him', role:'WAITING FOR THE PUNCHLINE cast', text:['Tucker Brewster Schuster is from Sleepy Eye, MN. (Yes, he knows he sounds like a cartoon character.) Before moving to Chicago, Tucker has spent the past few years performing all around the world as a stunt man, an actor, and a stilt walker! He enjoys playing Magic the Gathering, Power Lifting, doing Gymnastics, and doing silly little bits. He wants to thank his girlfriend, Jessica, for all of the love and support.'], links:[['Instagram @tucktuckno','https://www.instagram.com/tucktuckno/']] },
+  'Kallie Scott': { pronouns:'she/her', role:'WAITING FOR THE PUNCHLINE cast', text:['Kallie Scott, born and raised in West Texas, comes to the Second City Training Center in a bold attempt to prove to herself that she really is funny. Kallie holds a B.A. in Theatre from West Texas A&M University and a M.F.A. in acting from Western Illinois University. She has been known to sneak around Chicago and perform a little stand-up or jump on a sketch show. Follow her on Instagram for show dates.'], links:[['Instagram @kallie_scott','https://www.instagram.com/kallie_scott/']] },
+  'Sarah Willstein': { pronouns:'she/her', role:'WAITING FOR THE PUNCHLINE cast', text:['Sarah "Swannie" Willstein grew up in Missoula, MT and graduated St. Olaf College with a degree in English, and an emphasis in creative writing. Swannie\'s comedy career began March 9, 1998 when her younger brother was born and she became THE middle child. Since that impactful day she has performed improv, sketch, and stand up routines from the living room to The Second City stages. To continue to see Swannie\'s work, follow her on Instagram, and come see her live at Background Bits\'s next production! Swannie would like to thank her friends and family for their support and encouragement throughout her conservatory experience.'], links:[['Instagram @swanniewills','https://www.instagram.com/swanniewills/']] },
+  'Christopher Willumsen': { role:'WAITING FOR THE PUNCHLINE cast', text:['Chris Willumsen was last seen on stage understudying Artistic Home\'s Superior Donuts and Artist Home Ensemble\'s Cut to the Chase. Prior to that, he appeared in Synetic Theater\'s The Trial in D.C. Chris made his directorial debut with Yas, And Comedy\'s pilot show "Yas, And!" in June, 2025, presented at the Annoyance Theatre, since then he has directed "Slay!", "Queers & Fears", and most recently "Blue Dress!"'], links:[['Instagram @CWillumsen_','https://www.instagram.com/cwillumsen_/']] },
+
+  'Jeff Bouthiette': { role:'Director, NICE SHIRT', text:['Jeff Bouthiette is a Chicago-based director and music director of theater and comedy. They recently served as director at the Second City New York where they directed Wreck the Halls and The Second City Swipes Right (devised comedic shows), Sketch and the City (scripted comedy), and Salt Pepper Ketchup, Everything Festive All at Once, and Reindeer Games (improvisational comedy). Jeff serves as an adjunct professor at the DePaul Theatre School and directed Everything You\'re About to See is Normal and Okay (devised) and Vampire Lesbians of Sodom.','For a decade, Jeff served as the Head of the Music Program at the Second City Training Center in Chicago, where they directed over a hundred student productions. Jeff is a sought-after director of sketch comedy and new musicals, and in Chicago directed the premieres of Altered Boy (Pride Films and Plays), Choice! The Musical (MCL Chicago), and Miami Nice! (Gorilla Tango). Jeff got their start as Founding Co-Artistic Director of Bare Boned Theatre, producing the long-running LGBTQ+ soap opera The Ville. They directed five episodes of the soap opera, as well as serving on the writing staff and overseeing the artistic product. They also directed Bare Boned Theatre\'s adaptation of Euripides\' Hecuba, The Hecubae.'] },
+  'Jess Mitolo': { pronouns:'she/her', role:'Director, WAITING FOR THE PUNCHLINE', text:['Jessica Mitolo loves to make ridiculous new things with ridiculously talented people. She is the current Senior Artistic Director of The Second City Training Center and has taught improvisation and sketch writing in over ten different countries including Jordan, Greece, Bulgaria, and Saudi Arabia. She loves to direct material with an eye towards social change and recent collaborations include productions with The Zebra Project and Funny You Should Care.'] },
+  'Darwin Noguera': { pronouns:'he/him', role:'Music Director, both revues', text:['Hailing from Managua, Nicaragua, pianist and composer Darwin Noguera is an eclectic artist who continues to enthrall and excite listeners with rich compositions and his improvisational prowess. He is currently a musical director at The Second City of Chicago, as well as a teaching artist with the Chicago Jazz Philharmonic. In 2017, the artist made his Carnegie Hall debut, along with contemporary icon Bobby Sanabria Multiverse Bigband, and garnering a Grammy Award Nomination for their acclaimed recording, "West Side Story: Reimagined" live at Jazz at Lincoln Center.','Darwin is also a furious bandleader, who fuses his native Nicaraguan folk music, Afro Cuban Jazz and hip hop. The artist is swiftly becoming an emerging voice in the Latin Jazz scene, with commissioned works, performances and masterclasses worldwide.'] },
+  'Vicky Diaz-Escobar': { pronouns:'any/all', role:'Stage Manager, both revues', text:['Vicky is a Chicago-based stage manager who has worked at The Second City as a studio stage manager since 2018. Here and at other theatres around town, Vicky works on a mix of variety shows, sketch, improv, and plays. Before Chicago Vicky studied directing and stage managing at TCU in Fort Worth Texas. (Go Frogs!). Vicky is excited to work on another Grad Revue 3 show this term with this talented group of actors!'] },
+};
 
 const TZ = 'America/Chicago';
 const fmt = (d, opt) => new Intl.DateTimeFormat('en-US', Object.assign({ timeZone: TZ }, opt)).format(d);
@@ -538,12 +638,39 @@ function render(){
     line.innerHTML = 'That&rsquo;s a wrap. Thank you for coming out!';
   }
 
-  document.getElementById('cast-grid').innerHTML = CAST.map(([name, file, href]) => {
-    const inner = `<div class="ph"><img src="assets/cast/${file}.jpg" alt="${esc(name)} headshot" loading="lazy" width="199" height="270"></div><div class="n">${esc(name)}</div><div class="r">Ensemble</div>`;
-    return href ? `<a class="person" href="${href}" title="${esc(name)} — actor site">${inner}</a>` : `<div class="person">${inner}</div>`;
+  document.getElementById('cast-grid').innerHTML = CAST.map(([name, file]) => {
+    const has = !!BIOS[name];
+    const inner = `<div class="ph"><img src="assets/cast/${file}.jpg" alt="${esc(name)} headshot" loading="lazy" width="199" height="270"></div><div class="n">${esc(name)}</div><div class="r">Ensemble</div>${has ? '<div class="more">Bio</div>' : ''}`;
+    return has
+      ? `<button type="button" class="person has-bio" data-bio="${esc(name)}" data-photo="assets/cast/${file}.jpg" title="Read ${esc(name)}'s bio">${inner}</button>`
+      : `<div class="person">${inner}</div>`;
   }).join('');
 
-  document.getElementById('punchline-names').innerHTML = PUNCHLINE.map(n => `<span>${esc(n)}</span>`).join('');
+  document.getElementById('punchline-names').innerHTML = PUNCHLINE.map(n => BIOS[n]
+    ? `<button type="button" data-bio="${esc(n)}" title="Read ${esc(n)}'s bio">${esc(n)}</button>`
+    : `<span>${esc(n)}</span>`).join('');
+
+  const teamHtml = list => list.map(([role, name]) => BIOS[name]
+    ? `<button type="button" class="card has-bio" data-bio="${esc(name)}" title="Read ${esc(name)}'s bio" style="text-align:left;font:inherit"><div class="role">${esc(role)}</div><div class="name">${esc(name)}</div><div class="more">Bio</div></button>`
+    : `<div class="card"><div class="role">${esc(role)}</div><div class="name">${esc(name)}</div></div>`).join('');
+  document.getElementById('team-ns').innerHTML = teamHtml(TEAM_NS);
+  document.getElementById('team-wp').innerHTML = teamHtml(TEAM_WP);
+
+  /* Bio dialog: opens from any [data-bio]; closes only via the X or Esc */
+  const dlg = document.getElementById('bio');
+  document.addEventListener('click', e => {
+    const el = e.target.closest('[data-bio]');
+    if (!el) return;
+    const name = el.dataset.bio, b = BIOS[name];
+    if (!b) return;
+    document.getElementById('bio-photo').innerHTML = el.dataset.photo ? `<img src="${esc(el.dataset.photo)}" alt="${esc(name)} headshot">` : '';
+    dlg.querySelector('.bio-inner').classList.toggle('no-photo', !el.dataset.photo);
+    document.getElementById('bio-name').textContent = name;
+    document.getElementById('bio-sub').innerHTML = esc(b.role) + (b.pronouns ? ` <em>(${esc(b.pronouns)})</em>` : '');
+    document.getElementById('bio-text').innerHTML = b.text.map(p => `<p>${esc(p)}</p>`).join('');
+    document.getElementById('bio-links').innerHTML = (b.links || []).map(([label, url]) => `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(label)}</a>`).join('');
+    dlg.showModal();
+  });
 
   if (VENUE_PHOTO) {
     document.getElementById('venue-photo').outerHTML = `<div class="venue-photo">
