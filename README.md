@@ -25,8 +25,9 @@ near the bottom of the file: one line per show with start time (Chicago
 time), label, price, and ticket URL. Cast names and headshot filenames are
 in the `CAST` array; headshots live in `assets/cast/`.
 
-Optional venue photo: drop a photo of the e.t.c. room at `assets/etc-stage.jpg`
-and the Venue section picks it up. If the file is missing the slot hides itself.
+Optional venue photo: drop a photo of the e.t.c. room in `assets/` and set
+`VENUE_PHOTO` (next to the `SHOWS` array) to its path, e.g.
+`'assets/etc-stage.jpg'`. While it is empty the Venue section shows no photo.
 
 Analytics: shared rizzo.cc GA4 property. Turn it off on one device with
 `?ga=off` (and back on with `?ga=on`).

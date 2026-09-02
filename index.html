@@ -409,10 +409,7 @@ footer a:hover{color:#fff}
       <p class="lead">A 158-seat cabaret-style room on the second floor of Piper's Alley, right next to the Mainstage.</p>
       <div class="venue">
         <div>
-          <div class="venue-photo">
-            <img src="assets/etc-stage.jpg" alt="The Second City e.t.c. Theater, tables and chairs facing the stage" loading="lazy" onerror="this.closest('.venue-photo').remove()">
-            <div class="cap">Chicago e.t.c. Theater · Piper's Alley, 2nd floor</div>
-          </div>
+          <div id="venue-photo"></div>
           <div class="seating">
             <h3>Seating</h3>
             <p>All tickets are General Admission. When you arrive, the House Manager assigns your seat based on your arrival time and how many parties are expected for that performance. All seating is at the House Manager's discretion.</p>
@@ -480,6 +477,9 @@ const SHOWS = [
 ];
 const RUN_MS = 3 * 60 * 60 * 1000; /* a show counts as "past" 3 hours after curtain */
 
+/* Optional photo of the e.t.c. room, e.g. 'assets/etc-stage.jpg'. Leave empty to hide the slot. */
+const VENUE_PHOTO = '';
+
 const CAST = [
   ['Alyssa Dawson','alyssa-dawson'],
   ['Todd Douglas','todd-douglas'],
@@ -544,6 +544,13 @@ function render(){
   }).join('');
 
   document.getElementById('punchline-names').innerHTML = PUNCHLINE.map(n => `<span>${esc(n)}</span>`).join('');
+
+  if (VENUE_PHOTO) {
+    document.getElementById('venue-photo').outerHTML = `<div class="venue-photo">
+      <img src="${esc(VENUE_PHOTO)}" alt="The Second City e.t.c. Theater, tables and chairs facing the stage" loading="lazy">
+      <div class="cap">Chicago e.t.c. Theater &middot; Piper's Alley, 2nd floor</div>
+    </div>`;
+  }
 
   /* Structured data: one TheaterEvent per upcoming ticketed performance */
   const events = rows.filter(r => !r.past && r.s.url).map(({ s }) => ({
