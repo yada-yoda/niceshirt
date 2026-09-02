@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NICE SHIRT v0.2.1 — The Second City Grad Revue</title>
-<meta name="app-version" content="0.2.1">
+<title>NICE SHIRT v0.3.0 — The Second City Grad Revue</title>
+<meta name="app-version" content="0.3.0">
 <meta name="description" content="NICE SHIRT brings The Second City Grad Revue to the stage with original sketch comedy developed from weeks of improv and process shows. Tickets for Sept 8, 14 and 21 at the Chicago e.t.c. Theater.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://niceshirt.rizzo.cc/">
@@ -165,6 +165,14 @@ h2 .accent{color:var(--blue)}
 
 /* ---------- performances ---------- */
 .shows{display:grid;gap:12px}
+.shows-cols{display:grid;grid-template-columns:1fr;gap:34px}
+@media (min-width:900px){
+  .shows-cols{grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+  .col-preview{order:0}.col-run{order:1}
+}
+.col-title{font-family:var(--display);font-size:26px;letter-spacing:.05em;color:#fff;line-height:1;margin-bottom:6px}
+.col-title .accent{color:var(--blue)}
+.col-sub{color:var(--dim);font-size:13px;margin-bottom:14px}
 .show{
   display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:18px;
   background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
@@ -197,7 +205,7 @@ h2 .accent{color:var(--blue)}
   font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);
   border:1px dashed var(--line-2);border-radius:999px;padding:10px 16px;
 }
-@media (max-width:560px){
+@media (max-width:560px),(min-width:900px) and (max-width:1080px){
   .show{grid-template-columns:auto 1fr;gap:14px;padding:14px}
   .buy{grid-column:1 / -1;text-align:center}
   .buy .btn{width:100%;justify-content:center}
@@ -386,7 +394,18 @@ footer a:hover{color:#fff}
       <div class="eyebrow">Performances</div>
       <h2>Dates &amp; <span class="accent">Tickets</span></h2>
       <p class="lead">Each performance has its own ticket link. Past dates are crossed off automatically. All shows are at The Second City Chicago e.t.c. Theater.</p>
-      <div class="shows" id="shows"></div>
+      <div class="shows-cols">
+        <div class="shows-col col-run">
+          <h3 class="col-title">The <span class="accent">Run</span></h3>
+          <p class="col-sub">Opening night and the three ticketed performances, ending with the graduation show.</p>
+          <div class="shows" id="shows-run"></div>
+        </div>
+        <div class="shows-col col-preview">
+          <h3 class="col-title">Previews</h3>
+          <p class="col-sub">Monday-night process shows where the material was built and tested before the run.</p>
+          <div class="shows" id="shows-preview"></div>
+        </div>
+      </div>
       <p class="fineprint">All tickets are General Admission. Seats are assigned by the House Manager when you arrive, based on arrival time and party size. Prices are per ticket as listed at checkout.</p>
     </div>
   </section>
@@ -519,25 +538,25 @@ footer a:hover{color:#fff}
 <footer>
   <div class="wrap">
     NICE SHIRT &middot; The Second City Grad Revue &middot; Chicago e.t.c. Theater
-    <span class="ver">v0.2.1</span>
+    <span class="ver">v0.3.0</span>
     <div style="margin-top:8px"><a href="https://rizzo.cc/">rizzo.cc</a></div>
   </div>
 </footer>
 
 <script>
-const APP_VERSION = '0.2.1';
+const APP_VERSION = '0.3.0';
 document.title = 'NICE SHIRT v' + APP_VERSION + ' — The Second City Grad Revue';
 
 /* One entry per performance. Chicago time (CDT = -05:00 through early November). */
 const SHOWS = [
-  { start:'2026-08-03T20:00:00-05:00', label:'Preview',       tag:'',     price:'',       url:'' },
-  { start:'2026-08-10T20:00:00-05:00', label:'Preview',       tag:'',     price:'',       url:'' },
-  { start:'2026-08-17T20:00:00-05:00', label:'Preview',       tag:'',     price:'',       url:'' },
-  { start:'2026-08-24T20:00:00-05:00', label:'Preview',       tag:'',     price:'',       url:'' },
-  { start:'2026-08-31T20:00:00-05:00', label:'Opening Night', tag:'blue', price:'$12.00', url:'' },
-  { start:'2026-09-08T20:00:00-05:00', label:'Performance',   tag:'',     price:'$12.00', url:'https://us.tickets.secondcity.com/checkout/6a735a25b161a77967a0d1d1' },
-  { start:'2026-09-14T20:00:00-05:00', label:'Performance',   tag:'',     price:'$12.00', url:'https://us.tickets.secondcity.com/checkout/6a735a8e28c8b3752699aa42' },
-  { start:'2026-09-21T20:30:00-05:00', label:'Graduation / Closing Show', tag:'gold', price:'$12.25', priceNote:'$10.00 + $2.25 per-ticket fee', url:'https://us.tickets.secondcity.com/checkout/6a735912cef5c36380eda65a' },
+  { group:'preview', start:'2026-08-03T20:00:00-05:00', label:'Preview 1', tag:'', price:'', url:'' },
+  { group:'preview', start:'2026-08-10T20:00:00-05:00', label:'Preview 2', tag:'', price:'', url:'' },
+  { group:'preview', start:'2026-08-17T20:00:00-05:00', label:'Preview 3', tag:'', price:'', url:'' },
+  { group:'preview', start:'2026-08-24T20:00:00-05:00', label:'Preview 4', tag:'', price:'', url:'' },
+  { group:'run', start:'2026-08-31T20:00:00-05:00', label:'Opening Night', tag:'blue', price:'$12.00', url:'' },
+  { group:'run', start:'2026-09-08T20:00:00-05:00', label:'Performance',   tag:'',     price:'$12.00', url:'https://us.tickets.secondcity.com/checkout/6a735a25b161a77967a0d1d1' },
+  { group:'run', start:'2026-09-14T20:00:00-05:00', label:'Performance',   tag:'',     price:'$12.00', url:'https://us.tickets.secondcity.com/checkout/6a735a8e28c8b3752699aa42' },
+  { group:'run', start:'2026-09-21T20:30:00-05:00', label:'Graduation / Closing Show', tag:'gold', price:'$12.25', priceNote:'$10.00 + $2.25 per-ticket fee', url:'https://us.tickets.secondcity.com/checkout/6a735912cef5c36380eda65a' },
 ];
 const RUN_MS = 3 * 60 * 60 * 1000; /* a show counts as "past" 3 hours after curtain */
 
@@ -596,7 +615,6 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':
 
 function render(){
   const now = Date.now();
-  const grid = document.getElementById('shows');
   let nextIdx = -1;
   const rows = SHOWS.map((s, i) => {
     const d = new Date(s.start);
@@ -604,11 +622,11 @@ function render(){
     if (!past && nextIdx < 0) nextIdx = i;
     return { s, d, past };
   });
-  grid.innerHTML = rows.map(({ s, d, past }, i) => {
+  const cardHtml = ({ s, d, past }, i) => {
     const time = fmt(d, { hour: 'numeric', minute: '2-digit' });
     const tag = `<span class="tag ${s.tag}">${esc(s.label)}</span>`;
     let buy;
-    if (past) buy = `<div class="buy">${s.label === 'Preview' ? 'Preview done' : 'Show done'}</div>`;
+    if (past) buy = `<div class="buy">${s.group === 'preview' ? 'Preview done' : 'Show done'}</div>`;
     else if (s.url) buy = `<div class="buy"><a class="btn btn-primary" href="${esc(s.url)}" target="_blank" rel="noopener">Buy Tickets</a></div>`;
     else buy = `<div class="buy door">Tickets at the door</div>`;
     const price = s.price
@@ -623,7 +641,9 @@ function render(){
       </div>
       ${buy}
     </article>`;
-  }).join('');
+  };
+  document.getElementById('shows-preview').innerHTML = rows.map((r, i) => r.s.group === 'preview' ? cardHtml(r, i) : '').join('');
+  document.getElementById('shows-run').innerHTML = rows.map((r, i) => r.s.group === 'run' ? cardHtml(r, i) : '').join('');
 
   const line = document.getElementById('next-line');
   if (nextIdx >= 0) {
