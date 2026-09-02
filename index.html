@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NICE SHIRT v0.1.0 — The Second City Grad Revue</title>
+<meta name="app-version" content="0.1.0">
+<meta name="description" content="NICE SHIRT brings The Second City Grad Revue to the stage with original sketch comedy developed from weeks of improv and process shows. Tickets for Sept 8, 14 and 21 at the Chicago e.t.c. Theater.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://niceshirt.rizzo.cc/">
+<meta name="theme-color" content="#0b0b0e">
+<meta name="apple-mobile-web-app-title" content="NICE SHIRT">
+<link rel="apple-touch-icon" href="https://niceshirt.rizzo.cc/assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NICE SHIRT">
+<meta property="og:title" content="NICE SHIRT — The Second City Grad Revue">
+<meta property="og:description" content="Original sketch comedy at the Chicago e.t.c. Theater. Sept 8, 14 &amp; 21, 2026. Tickets $12.">
+<meta property="og:url" content="https://niceshirt.rizzo.cc/">
+<meta property="og:image" content="https://niceshirt.rizzo.cc/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="NICE SHIRT — The Second City Grad Revue">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NICE SHIRT — The Second City Grad Revue">
+<meta name="twitter:description" content="Original sketch comedy at the Chicago e.t.c. Theater. Sept 8, 14 &amp; 21, 2026. Tickets $12.">
+<meta name="twitter:image" content="https://niceshirt.rizzo.cc/assets/og.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat:wght@400;500;600;700;800&display=swap">
+
+<!-- Google Analytics 4 (shared rizzo.cc property). Per-device opt-out: ?ga=off / ?ga=on -->
+<script>
+(function(){
+  try{
+    var q=new URLSearchParams(location.search).get('ga');
+    if(q==='off')localStorage.setItem('ga_optout','1');
+    if(q==='on')localStorage.removeItem('ga_optout');
+    if(localStorage.getItem('ga_optout')==='1')return;
+  }catch(e){}
+  var s=document.createElement('script');s.async=true;
+  s.src='https://www.googletagmanager.com/gtag/js?id=G-DYME377V2S';document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+  window.gtag=gtag;gtag('js',new Date());gtag('config','G-DYME377V2S',{anonymize_ip:true});
+})();
+</script>
+
+<script type="application/ld+json" id="ld-events"></script>
+
+<style>
+:root{
+  --bg:#0b0b0e;
+  --bg-2:#131319;
+  --card:#181820;
+  --card-2:#1f1f29;
+  --line:rgba(255,255,255,.10);
+  --line-2:rgba(255,255,255,.22);
+  --text:#f4f4f6;
+  --muted:#b8b9c3;
+  --dim:#8a8b96;
+  --blue:#4aa8ff;
+  --blue-2:#7cc0ff;
+  --gold:#f5c400;
+  --red:#d22331;
+  --radius:16px;
+  --radius-sm:10px;
+  --max:1100px;
+  --display:'Luckiest Guy','Impact','Arial Black',sans-serif;
+  --body:'Montserrat','Segoe UI',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:var(--body);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:var(--blue-2)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+
+/* ---------- top bar ---------- */
+.top{
+  position:sticky;top:0;z-index:20;
+  background:rgba(11,11,14,.85);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:58px}
+.brand{font-family:var(--display);font-size:22px;letter-spacing:.06em;color:var(--blue);text-decoration:none;line-height:1}
+.brand small{display:block;font-family:var(--body);font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--dim);margin-top:4px;font-weight:600}
+.nav{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.nav a{
+  color:var(--muted);text-decoration:none;font-size:12px;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;padding:8px 10px;border-radius:8px;
+}
+.nav a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.nav a.cta{background:var(--blue);color:#06101c}
+.nav a.cta:hover{background:var(--blue-2);color:#06101c}
+@media (max-width:640px){.nav a:not(.cta){display:none}}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;padding:72px 0 60px;text-align:center;overflow:hidden;
+  background:
+    radial-gradient(900px 420px at 50% -10%, rgba(74,168,255,.22), transparent 70%),
+    linear-gradient(180deg,#0e0e14 0%,var(--bg) 100%);
+  border-bottom:1px solid var(--line);
+}
+.hero .bg{
+  position:absolute;inset:0;z-index:0;
+  background:url('assets/marquee.jpg') center 38% / cover no-repeat;
+  opacity:.28;filter:saturate(1.1);
+}
+.hero .bg::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(11,11,14,.35) 0%,rgba(11,11,14,.55) 55%,var(--bg) 100%);
+}
+.hero .wrap{position:relative;z-index:1}
+.kicker{
+  display:inline-block;font-size:12px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:18px;
+}
+.title{
+  font-family:var(--display);color:var(--blue);
+  font-size:clamp(64px,13vw,150px);line-height:.92;letter-spacing:.04em;
+  text-shadow:0 6px 0 rgba(0,0,0,.6),0 0 60px rgba(74,168,255,.25);
+}
+.sub{margin:22px auto 0;max-width:640px;color:var(--muted);font-size:17px}
+.sub strong{color:#fff}
+.hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 24px;border-radius:999px;font-weight:700;font-size:14px;letter-spacing:.06em;
+  text-decoration:none;text-transform:uppercase;transition:transform .12s ease,background .15s ease,color .15s ease;
+  border:1px solid transparent;
+}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--blue);color:#06101c}
+.btn-primary:hover{background:var(--blue-2)}
+.btn-ghost{background:transparent;border-color:var(--line-2);color:#fff}
+.btn-ghost:hover{border-color:#fff}
+.next{margin-top:26px;font-size:13px;color:var(--dim);letter-spacing:.06em}
+.next b{color:#fff;font-weight:700}
+.meta-line{
+  display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:22px;
+  font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);font-weight:600;
+}
+.meta-line span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--blue);margin-right:10px;vertical-align:middle}
+
+/* ---------- sections ---------- */
+section{padding:64px 0}
+section+section{border-top:1px solid var(--line)}
+h2{
+  font-family:var(--display);font-size:clamp(34px,5vw,52px);letter-spacing:.05em;line-height:1;
+  color:#fff;margin-bottom:8px;
+}
+h2 .accent{color:var(--blue)}
+.lead{color:var(--muted);max-width:720px;margin-bottom:28px}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+
+/* ---------- performances ---------- */
+.shows{display:grid;gap:12px}
+.show{
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:18px;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 18px;transition:border-color .15s ease;
+}
+.show:hover{border-color:var(--line-2)}
+.show.next-up{border-color:rgba(74,168,255,.55);box-shadow:0 0 0 1px rgba(74,168,255,.25),0 12px 40px rgba(74,168,255,.08)}
+.date{
+  text-align:center;min-width:74px;
+  background:var(--card-2);border-radius:12px;padding:10px 8px;border:1px solid var(--line);
+}
+.date .m{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--blue);font-weight:700}
+.date .d{font-family:var(--display);font-size:34px;line-height:1;color:#fff;margin:4px 0 2px}
+.date .w{font-size:11px;color:var(--dim);font-weight:600;letter-spacing:.06em}
+.info{min-width:0}
+.info .t{font-weight:700;font-size:17px;color:#fff;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.info .t .tag{
+  font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  padding:4px 8px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--muted);
+}
+.info .t .tag.gold{background:rgba(245,196,0,.16);color:var(--gold)}
+.info .t .tag.blue{background:rgba(74,168,255,.16);color:var(--blue-2)}
+.info .s{color:var(--muted);font-size:14px;margin-top:2px}
+.info .p{color:var(--dim);font-size:13px;margin-top:2px}
+.info .p b{color:#fff;font-weight:600}
+.buy{white-space:nowrap}
+.show.past{opacity:.55}
+.show.past .info .t,.show.past .info .s,.show.past .date .d{text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--red)}
+.show.past .buy,.show .buy.door{
+  font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);
+  border:1px dashed var(--line-2);border-radius:999px;padding:10px 16px;
+}
+@media (max-width:560px){
+  .show{grid-template-columns:auto 1fr;gap:14px;padding:14px}
+  .buy{grid-column:1 / -1;text-align:center}
+  .buy .btn{width:100%;justify-content:center}
+}
+.fineprint{margin-top:18px;color:var(--dim);font-size:13px}
+
+/* ---------- cast ---------- */
+.cast{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:18px}
+.person{text-align:center;text-decoration:none;color:inherit}
+.person .ph{
+  aspect-ratio:199/270;border-radius:12px;overflow:hidden;background:var(--card);
+  border:1px solid var(--line);transition:transform .15s ease,border-color .15s ease;
+}
+.person .ph img{width:100%;height:100%;object-fit:cover}
+.person:hover .ph{transform:translateY(-3px);border-color:var(--blue)}
+.person .n{margin-top:10px;font-family:var(--display);font-size:17px;letter-spacing:.06em;color:#fff;line-height:1.1}
+.person .r{font-size:11px;color:var(--dim);letter-spacing:.12em;text-transform:uppercase;font-weight:600;margin-top:4px}
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:34px}
+.team .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px 18px}
+.team .role{font-size:11px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
+.team .name{font-size:18px;font-weight:700;color:#fff;margin-top:4px}
+
+/* ---------- second group ---------- */
+.names{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.names span{
+  background:var(--card);border:1px solid var(--line);border-radius:999px;
+  padding:8px 14px;font-weight:600;font-size:14px;color:#fff;
+}
+
+/* ---------- about ---------- */
+.about{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.about p{color:var(--muted)}
+.about p+p{margin-top:10px}
+.about .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.about .card h3{font-family:var(--display);font-size:24px;letter-spacing:.05em;color:var(--blue);margin-bottom:10px}
+.defs{list-style:none;display:grid;gap:10px}
+.defs li{color:var(--muted)}
+.defs b{color:#fff;display:block;font-size:14px;letter-spacing:.04em}
+.program{
+  margin-top:28px;display:grid;grid-template-columns:minmax(200px,300px) 1fr;gap:26px;align-items:center;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;
+}
+@media (max-width:640px){.program{grid-template-columns:1fr}}
+.program a{display:block;border-radius:10px;overflow:hidden;border:1px solid var(--line-2)}
+.program img{width:100%;height:auto}
+.program h3{font-family:var(--display);font-size:24px;letter-spacing:.05em;color:#fff;margin-bottom:8px}
+.program p{color:var(--muted)}
+.program .cred{margin-top:12px;display:grid;gap:4px;font-size:14px;color:var(--muted)}
+.program .cred b{color:var(--gold);font-size:11px;letter-spacing:.26em;text-transform:uppercase;margin-right:8px}
+
+/* ---------- venue ---------- */
+.venue{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:start}
+@media (max-width:820px){.venue{grid-template-columns:1fr}}
+.venue-photo{
+  border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);
+  background:
+    linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.6)),
+    repeating-linear-gradient(90deg,#1b1b24 0 40px,#15151d 40px 80px);
+  aspect-ratio:16/8;position:relative;
+}
+.venue-photo img{width:100%;height:100%;object-fit:cover}
+.venue-photo .cap{
+  position:absolute;left:0;right:0;bottom:0;padding:14px 18px;
+  font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#fff;font-weight:700;
+  background:linear-gradient(180deg,transparent,rgba(0,0,0,.75));
+}
+.facts{display:grid;gap:12px}
+.fact{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px 16px;
+  display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:start;
+}
+.fact svg{width:22px;height:22px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-top:2px}
+.fact b{display:block;color:#fff;font-size:14px;letter-spacing:.02em}
+.fact span{color:var(--muted);font-size:14px}
+.fact a{color:var(--blue-2);text-decoration:none;border-bottom:1px solid rgba(124,192,255,.35)}
+.fact a:hover{border-bottom-color:var(--blue-2)}
+.seating{margin-top:24px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px}
+.seating h3{font-family:var(--display);font-size:22px;letter-spacing:.05em;color:#fff;margin-bottom:8px}
+.seating p{color:var(--muted);font-size:15px}
+.seating p+p{margin-top:8px}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:34px 0 44px;text-align:center;color:var(--dim);font-size:13px}
+footer .ver{
+  display:inline-block;margin-left:8px;padding:2px 8px;border-radius:999px;
+  background:rgba(255,255,255,.06);font-size:11px;letter-spacing:.08em;color:var(--dim);
+}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:#fff}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">NICE SHIRT<small>The Second City Grad Revue</small></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#cast">Cast</a>
+      <a href="#punchline">Also Playing</a>
+      <a href="#about">About</a>
+      <a href="#venue">Venue</a>
+      <a class="cta" href="#tickets">Tickets</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <span class="kicker">The Second City Training Center presents</span>
+      <h1 class="title">NICE SHIRT</h1>
+      <p class="sub"><strong>The Second City Grad Revue.</strong> Original sketch comedy developed from weeks of improv and process shows, now on the e.t.c. stage.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#tickets">Get Tickets</a>
+        <a class="btn btn-ghost" href="#cast">Meet the Cast</a>
+      </div>
+      <p class="next" id="next-line"></p>
+      <div class="meta-line">
+        <span>Chicago e.t.c. Theater</span>
+        <span>8:00 PM (closing night 8:30)</span>
+        <span>General Admission $12</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="tickets">
+    <div class="wrap">
+      <div class="eyebrow">Performances</div>
+      <h2>Dates &amp; <span class="accent">Tickets</span></h2>
+      <p class="lead">Each performance has its own ticket link. Past dates are crossed off automatically. All shows are at The Second City Chicago e.t.c. Theater.</p>
+      <div class="shows" id="shows"></div>
+      <p class="fineprint">All tickets are General Admission. Seats are assigned by the House Manager when you arrive, based on arrival time and party size. Prices are per ticket as listed at checkout.</p>
+    </div>
+  </section>
+
+  <section id="cast">
+    <div class="wrap">
+      <div class="eyebrow">Featuring</div>
+      <h2>The <span class="accent">Cast</span></h2>
+      <p class="lead">Nine performers who turned improv into a finished sketch revue.</p>
+      <div class="cast" id="cast-grid"></div>
+
+      <div class="team">
+        <div class="card"><div class="role">Director</div><div class="name">Jeff Bouthiette</div></div>
+        <div class="card"><div class="role">Music Director</div><div class="name">Darwin Noguera</div></div>
+        <div class="card"><div class="role">Stage Manager</div><div class="name">Vicky Diaz-Escobar</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="punchline">
+    <div class="wrap">
+      <div class="eyebrow">Also on the bill</div>
+      <h2>WAITING FOR THE <span class="accent">PUNCHLINE</span></h2>
+      <p class="lead">The other Grad Revue ensemble sharing the night. One ticket covers both revues.</p>
+      <div class="names" id="punchline-names"></div>
+      <div class="team">
+        <div class="card"><div class="role">Director</div><div class="name">Jess Mitolo</div></div>
+        <div class="card"><div class="role">Music Director</div><div class="name">Darwin Noguera</div></div>
+        <div class="card"><div class="role">Stage Manager</div><div class="name">Vicky Diaz-Escobar</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="eyebrow">About the show</div>
+      <h2>What is a <span class="accent">Grad Revue?</span></h2>
+      <div class="about">
+        <div class="card">
+          <h3>NICE SHIRT</h3>
+          <p>Come experience NICE SHIRT, The Second City Grad Revue! Developed over weeks of process shows, the cast turned improv into original sketch comedy, and now they're bringing the finished revue to the stage.</p>
+        </div>
+        <div class="card">
+          <h3>Grad Revue 3</h3>
+          <p>Come out to the Training Center on Monday nights for performances by Grad Revue 3 students. Sets include a mixture of original scenes and blackouts created by the ensembles as well as some improvisation. These students are at the end of their Grad Revue training, culminating in a final graduate show.</p>
+        </div>
+        <div class="card">
+          <h3>Sketch, not skits</h3>
+          <ul class="defs">
+            <li><b>Sketch comedy</b> Scripted, well-rehearsed scenes that are never, ever called "skits." (Most of us are mighty touchy about that one.)</li>
+            <li><b>Improv</b> The unscripted, spontaneous, collaborative art form Second City is famous for.</li>
+            <li><b>Stand-up</b> One comic, one mic. Think Jerry Seinfeld against a brick wall. At Second City that usually happens in the UP Comedy Club, not here.</li>
+          </ul>
+          <p style="margin-top:12px">A classic Second City revue is original sketches and songs sprinkled with a healthy dose of improv. Fully written and rehearsed, but no two shows are ever the same.</p>
+        </div>
+      </div>
+      <div class="program">
+        <a href="assets/playbill.jpg" target="_blank" rel="noopener" title="Open the full-size program"><img src="assets/playbill.jpg" alt="NICE SHIRT program: cast headshots, creative team and show dates" loading="lazy" width="900" height="1164"></a>
+        <div>
+          <h3>The Program</h3>
+          <p>The Second City Chicago e.t.c. Theater. NICE SHIRT, featuring Alyssa Dawson, Todd Douglas, Jack Finnegan, Gerard Fogarty, Joshua Hogan, Ben House, Frank Rizzo, Cole Steeves and Primula Stonebraker.</p>
+          <div class="cred">
+            <span><b>Director</b>Jeff Bouthiette</span>
+            <span><b>Music Director</b>Darwin Noguera</span>
+            <span><b>Stage Manager</b>Vicky Diaz-Escobar</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="venue">
+    <div class="wrap">
+      <div class="eyebrow">Where</div>
+      <h2>The Second City <span class="accent">e.t.c. Theater</span></h2>
+      <p class="lead">A 158-seat cabaret-style room on the second floor of Piper's Alley, right next to the Mainstage.</p>
+      <div class="venue">
+        <div>
+          <div class="venue-photo">
+            <img src="assets/etc-stage.jpg" alt="The Second City e.t.c. Theater, tables and chairs facing the stage" loading="lazy" onerror="this.closest('.venue-photo').remove()">
+            <div class="cap">Chicago e.t.c. Theater · Piper's Alley, 2nd floor</div>
+          </div>
+          <div class="seating">
+            <h3>Seating</h3>
+            <p>All tickets are General Admission. When you arrive, the House Manager assigns your seat based on your arrival time and how many parties are expected for that performance. All seating is at the House Manager's discretion.</p>
+            <p>The tables are close together because it's a nightclub. You'll always be seated with the people you came with, but expect to make some new friends, too.</p>
+            <p>The room holds 158: 47 premium, 76 general admission and 35 value seats, plus ADA seating.</p>
+          </div>
+        </div>
+        <div class="facts">
+          <div class="fact">
+            <svg viewBox="0 0 24 24"><path d="M12 22s7-7.1 7-12a7 7 0 0 0-14 0c0 4.9 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <div><b>Address</b><span><a href="https://maps.google.com/?q=230+W+North+Ave,+Chicago,+IL+60614" target="_blank" rel="noopener">230 W. North Ave., 2nd Floor<br>Chicago, IL 60614</a></span></div>
+          </div>
+          <div class="fact">
+            <svg viewBox="0 0 24 24"><path d="M5 17h14M6 17l1.5-5h9L18 17M7 12l1-4h8l1 4"/><circle cx="7.5" cy="17" r="1.5"/><circle cx="16.5" cy="17" r="1.5"/></svg>
+            <div><b>Parking</b><span>Piper's Alley Self Park at 230 W. North Ave. Parking is not validated.</span></div>
+          </div>
+          <div class="fact">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>
+            <div><b>Showtime</b><span>8:00 PM. Closing night is 8:30 PM. Arrive early for a better seat.</span></div>
+          </div>
+          <div class="fact">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="4" r="1.5"/><path d="M10 8h5l-1 6h4l-1 3M10 8l-1 5h5"/><circle cx="8" cy="17" r="3"/></svg>
+            <div><b>Accessibility</b><span>Each theater has wheelchair accessible and/or companion seats. Assistive listening devices are available upon request.</span></div>
+          </div>
+          <div class="fact">
+            <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg>
+            <div><b>Age policy</b><span>The Second City does not admit children under 13. Ages 13 to 17 must be accompanied by an adult.</span></div>
+          </div>
+          <div class="fact">
+            <svg viewBox="0 0 24 24"><path d="M8 3h8l-1 9a3 3 0 0 1-6 0zM12 15v6M8 21h8"/></svg>
+            <div><b>Drinks</b><span>Table service during the show. There is no drink minimum at The Second City.</span></div>
+          </div>
+          <div class="fact">
+            <svg viewBox="0 0 24 24"><path d="M12 3v18M7 7l5-4 5 4M5 12h14M7 17l5 4 5-4"/></svg>
+            <div><b>Bring a jacket</b><span>The theater runs cold on purpose. A couple hundred people in a small room raise the temperature 8 to 12 degrees fast, and the cast is under hot lights and moving the whole time.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    NICE SHIRT &middot; The Second City Grad Revue &middot; Chicago e.t.c. Theater
+    <span class="ver">v0.1.0</span>
+    <div style="margin-top:8px"><a href="https://rizzo.cc/">rizzo.cc</a></div>
+  </div>
+</footer>
+
+<script>
+const APP_VERSION = '0.1.0';
+document.title = 'NICE SHIRT v' + APP_VERSION + ' — The Second City Grad Revue';
+
+/* One entry per performance. Chicago time (CDT = -05:00 through early November). */
+const SHOWS = [
+  { start:'2026-08-03T20:00:00-05:00', label:'Preview',       tag:'',     price:'',       url:'' },
+  { start:'2026-08-10T20:00:00-05:00', label:'Preview',       tag:'',     price:'',       url:'' },
+  { start:'2026-08-17T20:00:00-05:00', label:'Preview',       tag:'',     price:'',       url:'' },
+  { start:'2026-08-24T20:00:00-05:00', label:'Preview',       tag:'',     price:'',       url:'' },
+  { start:'2026-08-31T20:00:00-05:00', label:'Opening Night', tag:'blue', price:'$12.00', url:'' },
+  { start:'2026-09-08T20:00:00-05:00', label:'Performance',   tag:'',     price:'$12.00', url:'https://us.tickets.secondcity.com/checkout/6a735a25b161a77967a0d1d1' },
+  { start:'2026-09-14T20:00:00-05:00', label:'Performance',   tag:'',     price:'$12.00', url:'https://us.tickets.secondcity.com/checkout/6a735a8e28c8b3752699aa42' },
+  { start:'2026-09-21T20:30:00-05:00', label:'Graduation / Closing Show', tag:'gold', price:'$12.25', priceNote:'$10.00 + $2.25 per-ticket fee', url:'https://us.tickets.secondcity.com/checkout/6a735912cef5c36380eda65a' },
+];
+const RUN_MS = 3 * 60 * 60 * 1000; /* a show counts as "past" 3 hours after curtain */
+
+const CAST = [
+  ['Alyssa Dawson','alyssa-dawson'],
+  ['Todd Douglas','todd-douglas'],
+  ['Jack Finnegan','jack-finnegan'],
+  ['Gerard Fogarty','gerard-fogarty'],
+  ['Joshua Hogan','joshua-hogan'],
+  ['Ben House','ben-house'],
+  ['Frank Rizzo','frank-rizzo','https://rizzo.cc/'],
+  ['Cole Steeves','cole-steeves'],
+  ['Primula Stonebraker','primula-stonebraker'],
+];
+const PUNCHLINE = ['Madeline Blasingame','Alex Buckmann','Daniel Fleming','Erik Kalberg','Rachel Kiser Rucker','Michael Nicholas','Tucker Brewster Schuster','Kallie Scott','Sarah Willstein','Christopher Willumsen'];
+
+const TZ = 'America/Chicago';
+const fmt = (d, opt) => new Intl.DateTimeFormat('en-US', Object.assign({ timeZone: TZ }, opt)).format(d);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function render(){
+  const now = Date.now();
+  const grid = document.getElementById('shows');
+  let nextIdx = -1;
+  const rows = SHOWS.map((s, i) => {
+    const d = new Date(s.start);
+    const past = now > d.getTime() + RUN_MS;
+    if (!past && nextIdx < 0) nextIdx = i;
+    return { s, d, past };
+  });
+  grid.innerHTML = rows.map(({ s, d, past }, i) => {
+    const time = fmt(d, { hour: 'numeric', minute: '2-digit' });
+    const tag = `<span class="tag ${s.tag}">${esc(s.label)}</span>`;
+    let buy;
+    if (past) buy = `<div class="buy">${s.label === 'Preview' ? 'Preview done' : 'Show done'}</div>`;
+    else if (s.url) buy = `<div class="buy"><a class="btn btn-primary" href="${esc(s.url)}" target="_blank" rel="noopener">Buy Tickets</a></div>`;
+    else buy = `<div class="buy door">Tickets at the door</div>`;
+    const price = s.price
+      ? `<div class="p"><b>${esc(s.price)}</b> General Admission${s.priceNote ? ' &middot; ' + esc(s.priceNote) : ''}</div>`
+      : `<div class="p">Process show</div>`;
+    return `<article class="show${past ? ' past' : ''}${i === nextIdx ? ' next-up' : ''}">
+      <div class="date"><div class="m">${fmt(d, { month: 'short' })}</div><div class="d">${fmt(d, { day: 'numeric' })}</div><div class="w">${fmt(d, { weekday: 'short' })}</div></div>
+      <div class="info">
+        <div class="t">${fmt(d, { weekday: 'long', month: 'long', day: 'numeric' })} ${tag}</div>
+        <div class="s">${time} &middot; Chicago e.t.c. Theater</div>
+        ${price}
+      </div>
+      ${buy}
+    </article>`;
+  }).join('');
+
+  const line = document.getElementById('next-line');
+  if (nextIdx >= 0) {
+    const d = rows[nextIdx].d;
+    const days = Math.ceil((d.getTime() - now) / 86400000);
+    const when = days <= 0 ? 'tonight' : days === 1 ? 'tomorrow' : `in ${days} days`;
+    line.innerHTML = `Next show: <b>${fmt(d, { weekday: 'long', month: 'long', day: 'numeric' })} at ${fmt(d, { hour: 'numeric', minute: '2-digit' })}</b> &middot; ${when}`;
+  } else {
+    line.innerHTML = 'That&rsquo;s a wrap. Thank you for coming out!';
+  }
+
+  document.getElementById('cast-grid').innerHTML = CAST.map(([name, file, href]) => {
+    const inner = `<div class="ph"><img src="assets/cast/${file}.jpg" alt="${esc(name)} headshot" loading="lazy" width="199" height="270"></div><div class="n">${esc(name)}</div><div class="r">Ensemble</div>`;
+    return href ? `<a class="person" href="${href}" title="${esc(name)} — actor site">${inner}</a>` : `<div class="person">${inner}</div>`;
+  }).join('');
+
+  document.getElementById('punchline-names').innerHTML = PUNCHLINE.map(n => `<span>${esc(n)}</span>`).join('');
+
+  /* Structured data: one TheaterEvent per upcoming ticketed performance */
+  const events = rows.filter(r => !r.past && r.s.url).map(({ s }) => ({
+    '@type': 'TheaterEvent',
+    name: 'NICE SHIRT — The Second City Grad Revue',
+    startDate: s.start,
+    eventStatus: 'https://schema.org/EventScheduled',
+    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+    location: { '@type': 'PerformingArtsTheater', name: 'The Second City Chicago e.t.c. Theater',
+      address: { '@type': 'PostalAddress', streetAddress: '230 W North Ave, 2nd Floor', addressLocality: 'Chicago', addressRegion: 'IL', postalCode: '60614', addressCountry: 'US' } },
+    offers: { '@type': 'Offer', url: s.url, price: s.price.replace('$', ''), priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+    organizer: { '@type': 'Organization', name: 'The Second City Training Center', url: 'https://www.secondcity.com/' },
+    image: 'https://niceshirt.rizzo.cc/assets/og.png',
+    url: 'https://niceshirt.rizzo.cc/'
+  }));
+  document.getElementById('ld-events').textContent = JSON.stringify({ '@context': 'https://schema.org', '@graph': events });
+}
+render();
+</script>
+</body>
+</html>
