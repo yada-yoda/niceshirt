@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NICE SHIRT v0.4.1 — The Second City Grad Revue</title>
-<meta name="app-version" content="0.4.1">
+<title>NICE SHIRT v0.4.2 — The Second City Grad Revue</title>
+<meta name="app-version" content="0.4.2">
 <meta name="description" content="NICE SHIRT brings The Second City Grad Revue to the stage with original sketch comedy developed from weeks of improv and process shows. Tickets for Sept 8, 14 and 21 at the Chicago e.t.c. Theater.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://niceshirt.rizzo.cc/">
@@ -273,7 +273,8 @@ dialog.bio::backdrop{background:rgba(0,0,0,.7);backdrop-filter:blur(3px)}
 .bio-close:hover{background:rgba(255,255,255,.16)}
 
 /* ---------- programs ---------- */
-.programs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:22px}
+.programs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+@media (max-width:420px){.programs{grid-template-columns:1fr}}
 .pdf{
   display:block;
   background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px;
@@ -305,17 +306,11 @@ dialog.bio::backdrop{background:rgba(0,0,0,.7);backdrop-filter:blur(3px)}
 .defs{list-style:none;display:grid;gap:10px}
 .defs li{color:var(--muted)}
 .defs b{color:#fff;display:block;font-size:14px;letter-spacing:.04em}
-.program{
-  margin-top:28px;display:grid;grid-template-columns:minmax(200px,300px) 1fr;gap:26px;align-items:center;
-  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;
-}
-@media (max-width:640px){.program{grid-template-columns:1fr}}
-.program > a{display:block;border-radius:10px;overflow:hidden;border:1px solid var(--line-2)}
-.program > a img{width:100%;height:auto}
-.program h3{font-family:var(--display);font-size:24px;letter-spacing:.05em;color:#fff;margin-bottom:8px}
-.program p{color:var(--muted)}
-.program .cred{margin-top:12px;display:grid;gap:4px;font-size:14px;color:var(--muted)}
-.program .cred b{color:var(--gold);font-size:11px;letter-spacing:.26em;text-transform:uppercase;margin-right:8px}
+.extras{margin-top:24px}
+.promo-imgs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.promo-imgs a{display:block;border-radius:10px;overflow:hidden;border:1px solid var(--line-2);transition:border-color .15s ease,transform .15s ease}
+.promo-imgs a:hover{border-color:var(--blue);transform:translateY(-2px)}
+.promo-imgs img{width:100%;height:auto}
 
 /* ---------- venue ---------- */
 .venue{columns:2;column-gap:24px}
@@ -468,9 +463,16 @@ footer a:hover{color:#fff}
           <p style="margin-top:12px">A classic Second City revue is original sketches and songs sprinkled with a healthy dose of improv. Fully written and rehearsed, but no two shows are ever the same.</p>
         </div>
       </div>
-      <div class="program">
-        <a href="assets/playbill.jpg" target="_blank" rel="noopener" title="Open the full-size Playbill"><img src="assets/playbill.jpg" alt="NICE SHIRT Playbill: cast headshots, creative team and show dates" loading="lazy" width="900" height="1164"></a>
-        <div>
+      <div class="about extras">
+        <div class="card">
+          <h3>Promo</h3>
+          <p>Unofficial art made for the run. Tap to open full size.</p>
+          <div class="promo-imgs">
+            <a href="assets/playbill.jpg" target="_blank" rel="noopener" title="Open the full-size Playbill"><img src="assets/playbill.jpg" alt="NICE SHIRT Playbill: cast headshots, creative team and show dates" loading="lazy" width="900" height="1164"></a>
+            <a href="assets/marquee.jpg" target="_blank" rel="noopener" title="Open the full-size marquee"><img src="assets/marquee.jpg" alt="The Second City marquee reading NICE SHIRT with the show dates" loading="lazy" width="1122" height="1402"></a>
+          </div>
+        </div>
+        <div class="card">
           <h3>Digital Programs</h3>
           <p>The official programs for both revues, the same ones the QR codes at the theater point to. Cast and crew bios inside. Tap a cast card above to read a bio here without opening the PDF.</p>
           <div class="programs">
@@ -550,13 +552,13 @@ footer a:hover{color:#fff}
 <footer>
   <div class="wrap">
     NICE SHIRT &middot; The Second City Grad Revue &middot; Chicago e.t.c. Theater
-    <span class="ver">v0.4.1</span>
+    <span class="ver">v0.4.2</span>
     <div style="margin-top:8px"><a href="https://rizzo.cc/">rizzo.cc</a></div>
   </div>
 </footer>
 
 <script>
-const APP_VERSION = '0.4.1';
+const APP_VERSION = '0.4.2';
 document.title = 'NICE SHIRT v' + APP_VERSION + ' — The Second City Grad Revue';
 
 /* One entry per performance. Chicago time (CDT = -05:00 through early November). */
