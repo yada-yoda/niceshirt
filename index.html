@@ -3,9 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NICE SHIRT v0.5.0 — The Second City Grad Revue</title>
-<meta name="app-version" content="0.5.0">
-<meta name="description" content="NICE SHIRT brings The Second City Grad Revue to the stage with original sketch comedy developed from weeks of improv and process shows. Tickets for Sept 8, 14 and 21 at the Chicago e.t.c. Theater.">
+<title>NICE SHIRT v0.5.1 — The Second City Grad Revue | Sketch Comedy at the Chicago e.t.c. Theater</title>
+<meta name="app-version" content="0.5.1">
+<meta name="description" content="NICE SHIRT is The Second City Grad Revue: original sketch comedy from the Conservatory graduating class, live at the Chicago e.t.c. Theater in Old Town. Shows Sept 8, 14 and 21, 2026. Tickets $12, cast, bios, programs and venue info.">
+<meta name="keywords" content="NICE SHIRT, Second City, Second City Grad Revue, Second City Training Center, Conservatory Graduation Show, sketch comedy Chicago, improv Chicago, e.t.c. Theater, Old Town Chicago comedy, Waiting for the Punchline, comedy show tickets September 2026">
+<meta name="author" content="NICE SHIRT cast">
+<meta name="geo.region" content="US-IL">
+<meta name="geo.placename" content="Chicago">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://niceshirt.rizzo.cc/">
 <meta name="theme-color" content="#0b0b0e">
@@ -18,16 +22,17 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="NICE SHIRT">
 <meta property="og:title" content="NICE SHIRT — The Second City Grad Revue">
-<meta property="og:description" content="Original sketch comedy at the Chicago e.t.c. Theater. Sept 8, 14 &amp; 21, 2026. Tickets $12.">
+<meta property="og:description" content="The Second City Grad Revue. Original sketch comedy at the Chicago e.t.c. Theater, Sept 8, 14 &amp; 21, 2026. Tickets $12. Would you rather it be mean?">
 <meta property="og:url" content="https://niceshirt.rizzo.cc/">
 <meta property="og:image" content="https://niceshirt.rizzo.cc/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:alt" content="NICE SHIRT — The Second City Grad Revue">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="NICE SHIRT — The Second City Grad Revue">
-<meta name="twitter:description" content="Original sketch comedy at the Chicago e.t.c. Theater. Sept 8, 14 &amp; 21, 2026. Tickets $12.">
+<meta name="twitter:description" content="The Second City Grad Revue. Original sketch comedy at the Chicago e.t.c. Theater, Sept 8, 14 &amp; 21, 2026. Tickets $12.">
 <meta name="twitter:image" content="https://niceshirt.rizzo.cc/assets/og.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -101,7 +106,8 @@ a{color:var(--blue-2)}
 .nav a:hover{color:#fff;background:rgba(255,255,255,.06)}
 .nav a.cta{background:var(--blue);color:#06101c}
 .nav a.cta:hover{background:var(--blue-2);color:#06101c}
-@media (max-width:640px){.nav a:not(.cta){display:none}}
+@media (max-width:640px){.nav{gap:2px}.nav a{font-size:11px;padding:7px 7px;letter-spacing:.1em}.brand{font-size:19px}.brand small{font-size:9px;letter-spacing:.2em}}
+@media (max-width:480px){.top .wrap{gap:8px;min-height:52px}.nav{gap:0}.nav a{padding:7px 5px;letter-spacing:.06em}.nav a.cta{padding:7px 9px}.brand small{display:none}}
 
 /* ---------- hero ---------- */
 .hero{
@@ -558,14 +564,14 @@ footer a:hover{color:#fff}
 <footer>
   <div class="wrap">
     NICE SHIRT &middot; The Second City Grad Revue &middot; Chicago e.t.c. Theater
-    <span class="ver">v0.5.0</span>
+    <span class="ver">v0.5.1</span>
     <div style="margin-top:8px"><a href="https://rizzo.cc/">rizzo.cc</a></div>
   </div>
 </footer>
 
 <script>
-const APP_VERSION = '0.5.0';
-document.title = 'NICE SHIRT v' + APP_VERSION + ' — The Second City Grad Revue';
+const APP_VERSION = '0.5.1';
+document.title = 'NICE SHIRT v' + APP_VERSION + ' — The Second City Grad Revue | Sketch Comedy at the Chicago e.t.c. Theater';
 
 /* One entry per performance. Chicago time (CDT = -05:00 through early November). */
 const SHOWS = [
@@ -576,7 +582,7 @@ const SHOWS = [
   { group:'run', start:'2026-08-31T20:00:00-05:00', label:'Opening Night', tag:'blue', price:'$12.00', url:'' },
   { group:'run', start:'2026-09-08T20:00:00-05:00', label:'Performance',   tag:'',     price:'$12.00', url:'https://us.tickets.secondcity.com/checkout/6a735a25b161a77967a0d1d1' },
   { group:'run', start:'2026-09-14T20:00:00-05:00', label:'Performance',   tag:'',     price:'$12.00', url:'https://us.tickets.secondcity.com/checkout/6a735a8e28c8b3752699aa42' },
-  { group:'run', start:'2026-09-21T19:00:00-05:00', label:'Graduation / Closing Show', tag:'gold', price:'$12.25', priceNote:'$10.00 + $2.25 per-ticket fee', note:'Show starts at 7:00 PM with WAITING FOR THE PUNCHLINE. NICE SHIRT is the final group, on at 8:30 PM.', url:'https://us.tickets.secondcity.com/checkout/6a735912cef5c36380eda65a' },
+  { group:'run', start:'2026-09-21T19:00:00-05:00', label:'Graduation / Closing', tag:'gold', price:'$12.25', priceNote:'$10.00 + $2.25 per-ticket fee', note:'Show starts at 7:00 PM with WAITING FOR THE PUNCHLINE. NICE SHIRT is the final group, on at 8:30 PM.', url:'https://us.tickets.secondcity.com/checkout/6a735912cef5c36380eda65a' },
 ];
 const RUN_MS = 3 * 60 * 60 * 1000; /* a show counts as "past" 3 hours after curtain */
 
@@ -603,7 +609,7 @@ const CAST_WP = [
   ['Michael Nicholas','michael-nicholas'],
   ['Tucker Brewster Schuster','tucker-brewster-schuster'],
   ['Kallie Scott','kallie-scott'],
-  ['Sarah Willstein','sarah-willstein'],
+  ['Sarah "Swannie" Willstein','sarah-willstein'],
   ['Christopher Willumsen','christopher-willumsen'],
 ];
 
@@ -631,7 +637,7 @@ const BIOS = {
   'Michael Nicholas': { role:'WAITING FOR THE PUNCHLINE cast', text:['Michael Nicholas is an actor, singer, and sandwich enthusiast, originally from Palatine, IL. He received his BA in Theatre Arts from Marquette University in 2018, where he was the proud recipient of the Chris Farley Memorial Scholarship. Since then, he\'s performed Shakespeare across Wisconsin, spent two years singing on Mississippi River paddlewheel boats, and most recently, gave architecture tours on the Chicago River. Now, he uses his expertise as a travel advisor at Travel Gallery, Inc. (take a trip!). He sincerely hopes you enjoy the show!'] },
   'Tucker Brewster Schuster': { pronouns:'he/him', role:'WAITING FOR THE PUNCHLINE cast', text:['Tucker Brewster Schuster is from Sleepy Eye, MN. (Yes, he knows he sounds like a cartoon character.) Before moving to Chicago, Tucker has spent the past few years performing all around the world as a stunt man, an actor, and a stilt walker! He enjoys playing Magic the Gathering, Power Lifting, doing Gymnastics, and doing silly little bits. He wants to thank his girlfriend, Jessica, for all of the love and support.'], links:[['Instagram @tucktuckno','https://www.instagram.com/tucktuckno/']] },
   'Kallie Scott': { pronouns:'she/her', role:'WAITING FOR THE PUNCHLINE cast', text:['Kallie Scott, born and raised in West Texas, comes to the Second City Training Center in a bold attempt to prove to herself that she really is funny. Kallie holds a B.A. in Theatre from West Texas A&M University and a M.F.A. in acting from Western Illinois University. She has been known to sneak around Chicago and perform a little stand-up or jump on a sketch show. Follow her on Instagram for show dates.'], links:[['Instagram @kallie_scott','https://www.instagram.com/kallie_scott/']] },
-  'Sarah Willstein': { pronouns:'she/her', role:'WAITING FOR THE PUNCHLINE cast', text:['Sarah "Swannie" Willstein grew up in Missoula, MT and graduated St. Olaf College with a degree in English, and an emphasis in creative writing. Swannie\'s comedy career began March 9, 1998 when her younger brother was born and she became THE middle child. Since that impactful day she has performed improv, sketch, and stand up routines from the living room to The Second City stages. To continue to see Swannie\'s work, follow her on Instagram, and come see her live at Background Bits\'s next production! Swannie would like to thank her friends and family for their support and encouragement throughout her conservatory experience.'], links:[['Instagram @swanniewills','https://www.instagram.com/swanniewills/']] },
+  'Sarah "Swannie" Willstein': { pronouns:'she/her', role:'WAITING FOR THE PUNCHLINE cast', text:['Sarah "Swannie" Willstein grew up in Missoula, MT and graduated St. Olaf College with a degree in English, and an emphasis in creative writing. Swannie\'s comedy career began March 9, 1998 when her younger brother was born and she became THE middle child. Since that impactful day she has performed improv, sketch, and stand up routines from the living room to The Second City stages. To continue to see Swannie\'s work, follow her on Instagram, and come see her live at Background Bits\'s next production! Swannie would like to thank her friends and family for their support and encouragement throughout her conservatory experience.'], links:[['Instagram @swanniewills','https://www.instagram.com/swanniewills/']] },
   'Christopher Willumsen': { role:'WAITING FOR THE PUNCHLINE cast', text:['Chris Willumsen was last seen on stage understudying Artistic Home\'s Superior Donuts and Artist Home Ensemble\'s Cut to the Chase. Prior to that, he appeared in Synetic Theater\'s The Trial in D.C. Chris made his directorial debut with Yas, And Comedy\'s pilot show "Yas, And!" in June, 2025, presented at the Annoyance Theatre, since then he has directed "Slay!", "Queers & Fears", and most recently "Blue Dress!"'], links:[['Instagram @CWillumsen_','https://www.instagram.com/cwillumsen_/']] },
 
   'Jeff Bouthiette': { role:'Director, NICE SHIRT', text:['Jeff Bouthiette is a Chicago-based director and music director of theater and comedy. They recently served as director at the Second City New York where they directed Wreck the Halls and The Second City Swipes Right (devised comedic shows), Sketch and the City (scripted comedy), and Salt Pepper Ketchup, Everything Festive All at Once, and Reindeer Games (improvisational comedy). Jeff serves as an adjunct professor at the DePaul Theatre School and directed Everything You\'re About to See is Normal and Okay (devised) and Vampire Lesbians of Sodom.','For a decade, Jeff served as the Head of the Music Program at the Second City Training Center in Chicago, where they directed over a hundred student productions. Jeff is a sought-after director of sketch comedy and new musicals, and in Chicago directed the premieres of Altered Boy (Pride Films and Plays), Choice! The Musical (MCL Chicago), and Miami Nice! (Gorilla Tango). Jeff got their start as Founding Co-Artistic Director of Bare Boned Theatre, producing the long-running LGBTQ+ soap opera The Ville. They directed five episodes of the soap opera, as well as serving on the writing staff and overseeing the artistic product. They also directed Bare Boned Theatre\'s adaptation of Euripides\' Hecuba, The Hecubae.'] },
@@ -727,9 +733,13 @@ function render(){
   }
 
   /* Structured data: one TheaterEvent per upcoming ticketed performance */
+  const performers = CAST.map(([n]) => ({ '@type': 'Person', name: n }));
   const events = rows.filter(r => !r.past && r.s.url).map(({ s }) => ({
     '@type': 'TheaterEvent',
-    name: 'NICE SHIRT — The Second City Grad Revue',
+    name: 'NICE SHIRT — The Second City Grad Revue' + (s.label !== 'Performance' ? ' (' + s.label + ')' : ''),
+    description: 'Original sketch comedy from The Second City Conservatory graduating class. Double bill with WAITING FOR THE PUNCHLINE; one ticket covers both revues.' + (s.note ? ' ' + s.note : ''),
+    performer: performers,
+    director: { '@type': 'Person', name: 'Jeff Bouthiette' },
     startDate: s.start,
     eventStatus: 'https://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
@@ -740,7 +750,16 @@ function render(){
     image: 'https://niceshirt.rizzo.cc/assets/og.png',
     url: 'https://niceshirt.rizzo.cc/'
   }));
-  document.getElementById('ld-events').textContent = JSON.stringify({ '@context': 'https://schema.org', '@graph': events });
+  const site = {
+    '@type': 'WebSite', '@id': 'https://niceshirt.rizzo.cc/#site', url: 'https://niceshirt.rizzo.cc/',
+    name: 'NICE SHIRT — The Second City Grad Revue', inLanguage: 'en-US',
+    description: document.querySelector('meta[name=description]').content
+  };
+  const group = {
+    '@type': 'TheaterGroup', '@id': 'https://niceshirt.rizzo.cc/#group', name: 'NICE SHIRT', url: 'https://niceshirt.rizzo.cc/',
+    member: performers, image: 'https://niceshirt.rizzo.cc/assets/og.png'
+  };
+  document.getElementById('ld-events').textContent = JSON.stringify({ '@context': 'https://schema.org', '@graph': [site, group, ...events] });
 }
 render();
 </script>
