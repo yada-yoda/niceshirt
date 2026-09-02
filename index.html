@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NICE SHIRT v0.5.2 — The Second City Grad Revue | Sketch Comedy at the Chicago e.t.c. Theater</title>
-<meta name="app-version" content="0.5.2">
+<title>NICE SHIRT v0.5.3 — The Second City Grad Revue | Sketch Comedy at the Chicago e.t.c. Theater</title>
+<meta name="app-version" content="0.5.3">
 <meta name="description" content="NICE SHIRT is The Second City Grad Revue: original sketch comedy from the Conservatory graduating class, live at the Chicago e.t.c. Theater in Old Town. Shows Sept 8, 14 and 21, 2026. Tickets $12, cast, bios, programs and venue info.">
 <meta name="keywords" content="NICE SHIRT, Second City, Second City Grad Revue, Second City Training Center, Conservatory Graduation Show, sketch comedy Chicago, improv Chicago, e.t.c. Theater, Old Town Chicago comedy, Waiting for the Punchline, comedy show tickets September 2026">
 <meta name="author" content="NICE SHIRT cast">
@@ -427,7 +427,7 @@ footer a:hover{color:#fff}
     <div class="wrap">
       <div class="eyebrow">Featuring</div>
       <h2>The <span class="accent">Cast</span></h2>
-      <p class="lead">Two Grad Revue ensembles share the night, and one ticket covers both. Tap a card or a name for a bio.</p>
+      <p class="lead">Two Grad Revue ensembles share the night. On the regular dates one ticket covers both; graduation night may be ticketed per group. Tap a card for a bio.</p>
 
       <div class="ensemble" id="nice-shirt">
         <h3 class="ens-title">NICE SHIRT</h3>
@@ -458,7 +458,7 @@ footer a:hover{color:#fff}
         <div class="card">
           <h3>WAITING FOR THE PUNCHLINE</h3>
           <p>The other Conservatory Graduation Show on the bill, directed by Jess Mitolo, with Darwin Noguera on music and Vicky Diaz-Escobar stage managing. Ten performers who went through the same process: Monday-night previews, improv turned into written sketch, and a finished revue for the run.</p>
-          <p>It plays the same four nights as NICE SHIRT, so one ticket gets you both revues.</p>
+          <p>It plays the same four nights as NICE SHIRT, and on the regular dates one ticket gets you both revues. Graduation night (Sept 21) may work differently: the two groups go on at 7:00 PM and 8:30 PM and could be ticketed separately, so check your ticket before you arrive.</p>
         </div>
         <div class="card">
           <h3>The Grad Revue</h3>
@@ -566,13 +566,13 @@ footer a:hover{color:#fff}
 <footer>
   <div class="wrap">
     NICE SHIRT &middot; The Second City Grad Revue &middot; Chicago e.t.c. Theater
-    <span class="ver">v0.5.2</span>
+    <span class="ver">v0.5.3</span>
     <div style="margin-top:8px"><a href="https://rizzo.cc/">rizzo.cc</a></div>
   </div>
 </footer>
 
 <script>
-const APP_VERSION = '0.5.2';
+const APP_VERSION = '0.5.3';
 document.title = 'NICE SHIRT v' + APP_VERSION + ' — The Second City Grad Revue | Sketch Comedy at the Chicago e.t.c. Theater';
 
 /* One entry per performance. Chicago time (CDT = -05:00 through early November). */
@@ -584,7 +584,7 @@ const SHOWS = [
   { group:'run', start:'2026-08-31T20:00:00-05:00', label:'Opening Night', tag:'blue', price:'$12.00', url:'' },
   { group:'run', start:'2026-09-08T20:00:00-05:00', label:'Performance',   tag:'',     price:'$12.00', url:'https://us.tickets.secondcity.com/checkout/6a735a25b161a77967a0d1d1' },
   { group:'run', start:'2026-09-14T20:00:00-05:00', label:'Performance',   tag:'',     price:'$12.00', url:'https://us.tickets.secondcity.com/checkout/6a735a8e28c8b3752699aa42' },
-  { group:'run', start:'2026-09-21T19:00:00-05:00', label:'Graduation / Closing', tag:'gold', price:'$12.25', priceNote:'$10.00 + $2.25 per-ticket fee', note:'Show starts at 7:00 PM with WAITING FOR THE PUNCHLINE. NICE SHIRT is the final group, on at 8:30 PM.', url:'https://us.tickets.secondcity.com/checkout/6a735912cef5c36380eda65a' },
+  { group:'run', start:'2026-09-21T19:00:00-05:00', label:'Graduation / Closing', tag:'gold', price:'$12.25', priceNote:'$10.00 + $2.25 per-ticket fee', note:'Show starts at 7:00 PM with WAITING FOR THE PUNCHLINE. NICE SHIRT is the final group, on at 8:30 PM. Graduation night may be ticketed per group, so check your ticket.', url:'https://us.tickets.secondcity.com/checkout/6a735912cef5c36380eda65a' },
 ];
 const RUN_MS = 3 * 60 * 60 * 1000; /* a show counts as "past" 3 hours after curtain */
 
