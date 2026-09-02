@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NICE SHIRT v0.4.0 — The Second City Grad Revue</title>
-<meta name="app-version" content="0.4.0">
+<title>NICE SHIRT v0.4.1 — The Second City Grad Revue</title>
+<meta name="app-version" content="0.4.1">
 <meta name="description" content="NICE SHIRT brings The Second City Grad Revue to the stage with original sketch comedy developed from weeks of improv and process shows. Tickets for Sept 8, 14 and 21 at the Chicago e.t.c. Theater.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://niceshirt.rizzo.cc/">
@@ -293,7 +293,8 @@ dialog.bio::backdrop{background:rgba(0,0,0,.7);backdrop-filter:blur(3px)}
 }
 
 /* ---------- about ---------- */
-.about{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.about{display:grid;grid-template-columns:1fr;gap:24px}
+@media (min-width:700px){.about{grid-template-columns:1fr 1fr}}
 .about p{color:var(--muted)}
 .about p+p{margin-top:10px}
 .about .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
@@ -445,7 +446,12 @@ footer a:hover{color:#fff}
         <div class="card">
           <h3>NICE SHIRT</h3>
           <p class="quip">"Would you rather it be mean?"</p>
-          <p>NICE SHIRT is The Second City Grad Revue: a night of original sketch comedy written and performed by the nine people in the cast above. Over weeks of process shows the cast improvised, kept what landed, and rewrote it into finished scenes, songs and blackouts. What you'll see is the revue that came out the other end.</p>
+          <p>NICE SHIRT is a Second City Conservatory Graduation Show: a night of original sketch comedy written and performed by the nine people in the cast above, directed by Jeff Bouthiette. Over weeks of process shows the cast improvised, kept what landed, and rewrote it into finished scenes, songs and blackouts. What you'll see is the revue that came out the other end.</p>
+        </div>
+        <div class="card">
+          <h3>WAITING FOR THE PUNCHLINE</h3>
+          <p>The other Conservatory Graduation Show on the bill, directed by Jess Mitolo, with Darwin Noguera on music and Vicky Diaz-Escobar stage managing. Ten performers who went through the same process: Monday-night previews, improv turned into written sketch, and a finished revue for the run.</p>
+          <p>It plays the same four nights as NICE SHIRT, so one ticket gets you both revues.</p>
         </div>
         <div class="card">
           <h3>The Grad Revue</h3>
@@ -544,13 +550,13 @@ footer a:hover{color:#fff}
 <footer>
   <div class="wrap">
     NICE SHIRT &middot; The Second City Grad Revue &middot; Chicago e.t.c. Theater
-    <span class="ver">v0.4.0</span>
+    <span class="ver">v0.4.1</span>
     <div style="margin-top:8px"><a href="https://rizzo.cc/">rizzo.cc</a></div>
   </div>
 </footer>
 
 <script>
-const APP_VERSION = '0.4.0';
+const APP_VERSION = '0.4.1';
 document.title = 'NICE SHIRT v' + APP_VERSION + ' — The Second City Grad Revue';
 
 /* One entry per performance. Chicago time (CDT = -05:00 through early November). */
