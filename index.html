@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NICE SHIRT v0.3.0 — The Second City Grad Revue</title>
-<meta name="app-version" content="0.3.0">
+<title>NICE SHIRT v0.4.0 — The Second City Grad Revue</title>
+<meta name="app-version" content="0.4.0">
 <meta name="description" content="NICE SHIRT brings The Second City Grad Revue to the stage with original sketch comedy developed from weeks of improv and process shows. Tickets for Sept 8, 14 and 21 at the Chicago e.t.c. Theater.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://niceshirt.rizzo.cc/">
@@ -213,8 +213,14 @@ h2 .accent{color:var(--blue)}
 .fineprint{margin-top:18px;color:var(--dim);font-size:13px}
 
 /* ---------- cast ---------- */
-.cast{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:18px}
-.person{text-align:center;text-decoration:none;color:inherit}
+.ensemble+.ensemble{margin-top:56px;padding-top:40px;border-top:1px dashed var(--line-2)}
+.ens-title{font-family:var(--display);font-size:clamp(28px,4vw,40px);letter-spacing:.05em;line-height:1;color:var(--blue);margin-bottom:6px}
+.ens-title .accent{color:#fff}
+.ens-sub{color:var(--dim);font-size:14px;margin-bottom:22px}
+/* Flex + centered wrap: 5 across on desktop, the remaining 4 centered beneath */
+.cast{display:flex;flex-wrap:wrap;justify-content:center;gap:22px 18px}
+.person{text-align:center;text-decoration:none;color:inherit;flex:0 1 186px;min-width:140px}
+@media (max-width:560px){.person{flex-basis:calc(50% - 9px);min-width:0}}
 .person .ph{
   aspect-ratio:199/270;border-radius:12px;overflow:hidden;background:var(--card);
   border:1px solid var(--line);transition:transform .15s ease,border-color .15s ease;
@@ -231,7 +237,7 @@ h2 .accent{color:var(--blue)}
 .team .card.has-bio:hover{border-color:var(--blue)}
 .team .card .more,.person .more{font-size:11px;color:var(--blue-2);letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-top:6px}
 .person.has-bio{cursor:pointer}
-.person{background:none;border:0;padding:0;font:inherit;width:100%}
+.person{background:none;border:0;padding:0;font:inherit}
 .names button{font:inherit;cursor:pointer;color:#fff}
 .names button:hover{border-color:var(--blue)}
 
@@ -360,7 +366,6 @@ footer a:hover{color:#fff}
     <a class="brand" href="#top">NICE SHIRT<small>The Second City Grad Revue</small></a>
     <nav class="nav" aria-label="Sections">
       <a href="#cast">Cast</a>
-      <a href="#punchline">Also Playing</a>
       <a href="#about">About</a>
       <a href="#venue">Venue</a>
       <a class="cta" href="#tickets">Tickets</a>
@@ -414,20 +419,21 @@ footer a:hover{color:#fff}
     <div class="wrap">
       <div class="eyebrow">Featuring</div>
       <h2>The <span class="accent">Cast</span></h2>
-      <p class="lead">Nine performers who turned improv into a finished sketch revue.</p>
-      <div class="cast" id="cast-grid"></div>
+      <p class="lead">Two Grad Revue ensembles share the night, and one ticket covers both. Tap a card or a name for a bio.</p>
 
-      <div class="team" id="team-ns"></div>
-    </div>
-  </section>
+      <div class="ensemble" id="nice-shirt">
+        <h3 class="ens-title">NICE SHIRT</h3>
+        <p class="ens-sub">Nine performers who turned improv into a finished sketch revue.</p>
+        <div class="cast" id="cast-grid"></div>
+        <div class="team" id="team-ns"></div>
+      </div>
 
-  <section id="punchline">
-    <div class="wrap">
-      <div class="eyebrow">Also on the bill</div>
-      <h2>WAITING FOR THE <span class="accent">PUNCHLINE</span></h2>
-      <p class="lead">The other Grad Revue ensemble sharing the night. One ticket covers both revues. Tap a name for a bio.</p>
-      <div class="names" id="punchline-names"></div>
-      <div class="team" id="team-wp"></div>
+      <div class="ensemble" id="punchline">
+        <h3 class="ens-title">WAITING FOR THE <span class="accent">PUNCHLINE</span></h3>
+        <p class="ens-sub">The other Grad Revue ensemble on the bill.</p>
+        <div class="names" id="punchline-names"></div>
+        <div class="team" id="team-wp"></div>
+      </div>
     </div>
   </section>
 
@@ -538,13 +544,13 @@ footer a:hover{color:#fff}
 <footer>
   <div class="wrap">
     NICE SHIRT &middot; The Second City Grad Revue &middot; Chicago e.t.c. Theater
-    <span class="ver">v0.3.0</span>
+    <span class="ver">v0.4.0</span>
     <div style="margin-top:8px"><a href="https://rizzo.cc/">rizzo.cc</a></div>
   </div>
 </footer>
 
 <script>
-const APP_VERSION = '0.3.0';
+const APP_VERSION = '0.4.0';
 document.title = 'NICE SHIRT v' + APP_VERSION + ' — The Second City Grad Revue';
 
 /* One entry per performance. Chicago time (CDT = -05:00 through early November). */
