@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NICE SHIRT v0.4.2 — The Second City Grad Revue</title>
-<meta name="app-version" content="0.4.2">
+<title>NICE SHIRT v0.5.0 — The Second City Grad Revue</title>
+<meta name="app-version" content="0.5.0">
 <meta name="description" content="NICE SHIRT brings The Second City Grad Revue to the stage with original sketch comedy developed from weeks of improv and process shows. Tickets for Sept 8, 14 and 21 at the Chicago e.t.c. Theater.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://niceshirt.rizzo.cc/">
@@ -198,6 +198,7 @@ h2 .accent{color:var(--blue)}
 .info .s{color:var(--muted);font-size:14px;margin-top:2px}
 .info .p{color:var(--dim);font-size:13px;margin-top:2px}
 .info .p b{color:#fff;font-weight:600}
+.info .p.note{color:var(--gold);margin-top:6px}
 .buy{white-space:nowrap}
 .show.past{opacity:.55}
 .show.past .info .t,.show.past .info .s,.show.past .date .d{text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--red)}
@@ -238,7 +239,7 @@ h2 .accent{color:var(--blue)}
 .team .card .more,.person .more{font-size:11px;color:var(--blue-2);letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-top:6px}
 .person.has-bio{cursor:pointer}
 .person{background:none;border:0;padding:0;font:inherit}
-.names button{font:inherit;cursor:pointer;color:#fff}
+.names button{font:inherit;cursor:pointer;color:#fff;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-weight:600;font-size:14px}
 .names button:hover{border-color:var(--blue)}
 
 /* ---------- bio dialog ---------- */
@@ -343,6 +344,9 @@ dialog.bio::backdrop{background:rgba(0,0,0,.7);backdrop-filter:blur(3px)}
 .seating h3{font-family:var(--display);font-size:22px;letter-spacing:.05em;color:#fff;margin-bottom:8px}
 .seating p{color:var(--muted);font-size:15px}
 .seating p+p{margin-top:8px}
+.seat-map{display:block;margin-top:14px;border-radius:10px;overflow:hidden;border:1px solid var(--line-2);background:#fff}
+.seat-map img{width:100%;height:auto}
+.seat-cap{font-size:12px;color:var(--dim);margin-top:8px}
 
 /* ---------- footer ---------- */
 footer{border-top:1px solid var(--line);padding:34px 0 44px;text-align:center;color:var(--dim);font-size:13px}
@@ -384,7 +388,7 @@ footer a:hover{color:#fff}
       <p class="next" id="next-line"></p>
       <div class="meta-line">
         <span>Chicago e.t.c. Theater</span>
-        <span>8:00 PM (closing night 8:30)</span>
+        <span>8:00 PM (closing night from 7:00)</span>
         <span>General Admission $12</span>
       </div>
     </div>
@@ -427,7 +431,7 @@ footer a:hover{color:#fff}
       <div class="ensemble" id="punchline">
         <h3 class="ens-title">WAITING FOR THE <span class="accent">PUNCHLINE</span></h3>
         <p class="ens-sub">The other Grad Revue ensemble on the bill.</p>
-        <div class="names" id="punchline-names"></div>
+        <div class="cast" id="punchline-grid"></div>
         <div class="team" id="team-wp"></div>
       </div>
     </div>
@@ -502,6 +506,8 @@ footer a:hover{color:#fff}
             <p>All tickets are General Admission. When you arrive, the House Manager assigns your seat based on your arrival time and how many parties are expected for that performance. All seating is at the House Manager's discretion.</p>
             <p>The tables are close together because it's a nightclub. You'll always be seated with the people you came with, but expect to make some new friends, too.</p>
             <p>The room holds 158: 47 premium, 76 general admission and 35 value seats, plus ADA seating.</p>
+            <a class="seat-map" href="assets/etc-seating.png" target="_blank" rel="noopener" title="Open the full-size seating map"><img src="assets/etc-seating.png" alt="Seating map of the e.t.c. Theater: stage at the top, premium tables closest, general admission behind, value seats at the sides and back, ADA seating by the entrance" loading="lazy" width="1600" height="1236"></a>
+            <p class="seat-cap">Tier map from The Second City. Tap to enlarge.</p>
           </div>
           <div class="fact">
             <svg viewBox="0 0 24 24"><path d="M12 22s7-7.1 7-12a7 7 0 0 0-14 0c0 4.9 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
@@ -513,7 +519,7 @@ footer a:hover{color:#fff}
           </div>
           <div class="fact">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>
-            <div><b>Showtime</b><span>8:00 PM. Closing night is 8:30 PM. Arrive early for a better seat.</span></div>
+            <div><b>Showtime</b><span>8:00 PM. Closing night starts at 7:00 PM with WAITING FOR THE PUNCHLINE, and NICE SHIRT goes on at 8:30 PM. Arrive early for a better seat.</span></div>
           </div>
           <div class="fact">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="4" r="1.5"/><path d="M10 8h5l-1 6h4l-1 3M10 8l-1 5h5"/><circle cx="8" cy="17" r="3"/></svg>
@@ -552,13 +558,13 @@ footer a:hover{color:#fff}
 <footer>
   <div class="wrap">
     NICE SHIRT &middot; The Second City Grad Revue &middot; Chicago e.t.c. Theater
-    <span class="ver">v0.4.2</span>
+    <span class="ver">v0.5.0</span>
     <div style="margin-top:8px"><a href="https://rizzo.cc/">rizzo.cc</a></div>
   </div>
 </footer>
 
 <script>
-const APP_VERSION = '0.4.2';
+const APP_VERSION = '0.5.0';
 document.title = 'NICE SHIRT v' + APP_VERSION + ' — The Second City Grad Revue';
 
 /* One entry per performance. Chicago time (CDT = -05:00 through early November). */
@@ -570,12 +576,12 @@ const SHOWS = [
   { group:'run', start:'2026-08-31T20:00:00-05:00', label:'Opening Night', tag:'blue', price:'$12.00', url:'' },
   { group:'run', start:'2026-09-08T20:00:00-05:00', label:'Performance',   tag:'',     price:'$12.00', url:'https://us.tickets.secondcity.com/checkout/6a735a25b161a77967a0d1d1' },
   { group:'run', start:'2026-09-14T20:00:00-05:00', label:'Performance',   tag:'',     price:'$12.00', url:'https://us.tickets.secondcity.com/checkout/6a735a8e28c8b3752699aa42' },
-  { group:'run', start:'2026-09-21T20:30:00-05:00', label:'Graduation / Closing Show', tag:'gold', price:'$12.25', priceNote:'$10.00 + $2.25 per-ticket fee', url:'https://us.tickets.secondcity.com/checkout/6a735912cef5c36380eda65a' },
+  { group:'run', start:'2026-09-21T19:00:00-05:00', label:'Graduation / Closing Show', tag:'gold', price:'$12.25', priceNote:'$10.00 + $2.25 per-ticket fee', note:'Show starts at 7:00 PM with WAITING FOR THE PUNCHLINE. NICE SHIRT is the final group, on at 8:30 PM.', url:'https://us.tickets.secondcity.com/checkout/6a735912cef5c36380eda65a' },
 ];
 const RUN_MS = 3 * 60 * 60 * 1000; /* a show counts as "past" 3 hours after curtain */
 
 /* Optional photo of the e.t.c. room, e.g. 'assets/etc-stage.jpg'. Leave empty to hide the slot. */
-const VENUE_PHOTO = '';
+const VENUE_PHOTO = 'assets/etc-stage.jpg';
 
 const CAST = [
   ['Alyssa Dawson','alyssa-dawson'],
@@ -588,11 +594,22 @@ const CAST = [
   ['Cole Steeves','cole-steeves'],
   ['Primula Stonebraker','primula-stonebraker'],
 ];
-const PUNCHLINE = ['Madeline Blasingame','Alex Buckmann','Daniel Fleming','Erik Kalberg','Rachel Kiser Rucker','Michael Nicholas','Tucker Brewster Schuster','Kallie Scott','Sarah Willstein','Christopher Willumsen'];
+const CAST_WP = [
+  ['Madeline Blasingame','madeline-blasingame'],
+  ['Alex Buckmann','alex-buckmann'],
+  ['Daniel Fleming','daniel-fleming'],
+  ['Erik Kalberg','erik-kalberg'],
+  ['Rachel Kiser Rucker','rachel-kiser-rucker'],
+  ['Michael Nicholas','michael-nicholas'],
+  ['Tucker Brewster Schuster','tucker-brewster-schuster'],
+  ['Kallie Scott','kallie-scott'],
+  ['Sarah Willstein','sarah-willstein'],
+  ['Christopher Willumsen','christopher-willumsen'],
+];
 
-/* Creative teams. role, name */
-const TEAM_NS = [['Director','Jeff Bouthiette'],['Music Director','Darwin Noguera'],['Stage Manager','Vicky Diaz-Escobar']];
-const TEAM_WP = [['Director','Jess Mitolo'],['Music Director','Darwin Noguera'],['Stage Manager','Vicky Diaz-Escobar']];
+/* Creative teams. role, name, photo slug */
+const TEAM_NS = [['Director','Jeff Bouthiette','jeff-bouthiette'],['Music Director','Darwin Noguera','darwin-noguera'],['Stage Manager','Vicky Diaz-Escobar','vicky-diaz-escobar']];
+const TEAM_WP = [['Director','Jess Mitolo','jess-mitolo'],['Music Director','Darwin Noguera','darwin-noguera'],['Stage Manager','Vicky Diaz-Escobar','vicky-diaz-escobar']];
 
 /* Bios from the official Second City digital programs. Keyed by display name.
    pronouns, role line, paragraphs, optional links [[label, url]]. */
@@ -646,12 +663,13 @@ function render(){
     const price = s.price
       ? `<div class="p"><b>${esc(s.price)}</b> General Admission${s.priceNote ? ' &middot; ' + esc(s.priceNote) : ''}</div>`
       : `<div class="p">Process show</div>`;
+    const note = s.note ? `<div class="p note">${esc(s.note)}</div>` : '';
     return `<article class="show${past ? ' past' : ''}${i === nextIdx ? ' next-up' : ''}">
       <div class="date"><div class="m">${fmt(d, { month: 'short' })}</div><div class="d">${fmt(d, { day: 'numeric' })}</div><div class="w">${fmt(d, { weekday: 'short' })}</div></div>
       <div class="info">
         <div class="t">${fmt(d, { weekday: 'long', month: 'long', day: 'numeric' })} ${tag}</div>
         <div class="s">${time} &middot; Chicago e.t.c. Theater</div>
-        ${price}
+        ${price}${note}
       </div>
       ${buy}
     </article>`;
@@ -669,20 +687,18 @@ function render(){
     line.innerHTML = 'That&rsquo;s a wrap. Thank you for coming out!';
   }
 
-  document.getElementById('cast-grid').innerHTML = CAST.map(([name, file]) => {
+  const castHtml = list => list.map(([name, file]) => {
     const has = !!BIOS[name];
     const inner = `<div class="ph"><img src="assets/cast/${file}.jpg" alt="${esc(name)} headshot" loading="lazy" width="199" height="270"></div><div class="n">${esc(name)}</div><div class="r">Ensemble</div>${has ? '<div class="more">Bio</div>' : ''}`;
     return has
       ? `<button type="button" class="person has-bio" data-bio="${esc(name)}" data-photo="assets/cast/${file}.jpg" title="Read ${esc(name)}'s bio">${inner}</button>`
       : `<div class="person">${inner}</div>`;
   }).join('');
+  document.getElementById('cast-grid').innerHTML = castHtml(CAST);
+  document.getElementById('punchline-grid').innerHTML = castHtml(CAST_WP);
 
-  document.getElementById('punchline-names').innerHTML = PUNCHLINE.map(n => BIOS[n]
-    ? `<button type="button" data-bio="${esc(n)}" title="Read ${esc(n)}'s bio">${esc(n)}</button>`
-    : `<span>${esc(n)}</span>`).join('');
-
-  const teamHtml = list => list.map(([role, name]) => BIOS[name]
-    ? `<button type="button" class="card has-bio" data-bio="${esc(name)}" title="Read ${esc(name)}'s bio" style="text-align:left;font:inherit"><div class="role">${esc(role)}</div><div class="name">${esc(name)}</div><div class="more">Bio</div></button>`
+  const teamHtml = list => list.map(([role, name, file]) => BIOS[name]
+    ? `<button type="button" class="card has-bio" data-bio="${esc(name)}"${file ? ` data-photo="assets/cast/${file}.jpg"` : ''} title="Read ${esc(name)}'s bio" style="text-align:left;font:inherit"><div class="role">${esc(role)}</div><div class="name">${esc(name)}</div><div class="more">Bio</div></button>`
     : `<div class="card"><div class="role">${esc(role)}</div><div class="name">${esc(name)}</div></div>`).join('');
   document.getElementById('team-ns').innerHTML = teamHtml(TEAM_NS);
   document.getElementById('team-wp').innerHTML = teamHtml(TEAM_WP);
