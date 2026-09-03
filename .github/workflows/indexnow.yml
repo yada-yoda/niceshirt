@@ -2,21 +2,43 @@
 # GitHub Pages finishes publishing a push to main. The key file at the site
 # root proves we own the host. Nothing here needs a secret: IndexNow keys
 # are public by design.
+#
+# Pages is built by GitHub's own dynamic workflow, which cannot trigger
+# workflow_run, so this runs on push and polls the Pages build status
+# until the pushed commit is live before pinging.
 name: IndexNow ping
 
 on:
-  workflow_run:
-    workflows: ["pages build and deployment"]
-    types: [completed]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: read
 
 jobs:
   ping:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
+      - name: Wait for GitHub Pages to publish this commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for i in $(seq 1 30); do
+            read -r status commit < <(gh api "repos/${{ github.repository }}/pages/builds/latest" --jq '.status + " " + .commit')
+            echo "Pages build: $status ($commit)"
+            if [ "$status" = "built" ] && [ "$commit" = "${{ github.sha }}" ]; then exit 0; fi
+            sleep 10
+          done
+          echo "Pages did not report this commit as built in 5 minutes; pinging anyway"
+
       - name: Submit changed URLs to IndexNow
         run: |
-          curl -sS -o /dev/null -w "IndexNow HTTP %{http_code}\n"             -X POST "https://api.indexnow.org/indexnow"             -H "Content-Type: application/json; charset=utf-8"             -d '{
+          curl -sS -o /dev/null -w "IndexNow HTTP %{http_code}\n" \
+            -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d '{
               "host": "niceshirt.rizzo.cc",
               "key": "02d2639edf406ed54622e94bd895901a",
               "keyLocation": "https://niceshirt.rizzo.cc/02d2639edf406ed54622e94bd895901a.txt",
