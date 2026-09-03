@@ -1,0 +1,27 @@
+# Tell Bing (and every other IndexNow engine) the page changed, right after
+# GitHub Pages finishes publishing a push to main. The key file at the site
+# root proves we own the host. Nothing here needs a secret: IndexNow keys
+# are public by design.
+name: IndexNow ping
+
+on:
+  workflow_run:
+    workflows: ["pages build and deployment"]
+    types: [completed]
+
+jobs:
+  ping:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Submit changed URLs to IndexNow
+        run: |
+          curl -sS -o /dev/null -w "IndexNow HTTP %{http_code}\n"             -X POST "https://api.indexnow.org/indexnow"             -H "Content-Type: application/json; charset=utf-8"             -d '{
+              "host": "niceshirt.rizzo.cc",
+              "key": "02d2639edf406ed54622e94bd895901a",
+              "keyLocation": "https://niceshirt.rizzo.cc/02d2639edf406ed54622e94bd895901a.txt",
+              "urlList": [
+                "https://niceshirt.rizzo.cc/",
+                "https://niceshirt.rizzo.cc/llms.txt"
+              ]
+            }'
