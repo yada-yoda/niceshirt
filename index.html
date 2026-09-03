@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NICE SHIRT v0.6.0 · Second City Grad Revue · Chicago Sketch & Improv</title>
-<meta name="app-version" content="0.6.0">
+<title>NICE SHIRT v0.6.1 · Second City Grad Revue · Chicago Sketch & Improv</title>
+<meta name="app-version" content="0.6.1">
 <meta name="description" content="NICE SHIRT, The Second City Grad Revue: original sketch comedy and improv at the Chicago e.t.c. Theater in Old Town. Sept 8, 14 & 21, 2026. Tickets $12.">
 <meta name="keywords" content="NICE SHIRT, Second City, Second City improv, Second City sketch comedy, Second City Grad Revue, Second City Conservatory, Second City Training Center, Chicago improv, Chicago sketch comedy, Chicago comedy shows, Old Town Chicago comedy, e.t.c. Theater, Piper's Alley, comedy shows Chicago September 2026, Waiting for the Punchline">
 <meta name="author" content="NICE SHIRT cast">
@@ -37,7 +37,9 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat:wght@400;500;600;700;800&display=swap">
+<link rel="preload" as="image" href="assets/marquee.jpg" fetchpriority="high">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat:wght@400;500;600;700;800&display=swap"></noscript>
 
 <!-- Google Analytics 4 (dedicated NICE SHIRT property). Per-device opt-out: ?ga=off / ?ga=on -->
 <script>
@@ -67,7 +69,7 @@
   --line-2:rgba(255,255,255,.22);
   --text:#f4f4f6;
   --muted:#b8b9c3;
-  --dim:#8a8b96;
+  --dim:#9a9ca8;
   --blue:#4aa8ff;
   --blue-2:#7cc0ff;
   --gold:#f5c400;
@@ -207,7 +209,7 @@ h2 .accent{color:var(--blue)}
 .info .p{color:var(--dim);font-size:13px;margin-top:2px}
 .info .p b{color:#fff;font-weight:600}
 .buy{white-space:nowrap}
-.show.past{opacity:.55}
+.show.past{opacity:.85;background:var(--bg-2)}
 .show.past .info .t,.show.past .info .s,.show.past .date .d{text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--red)}
 .show.past .buy,.show .buy.door{
   font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);
@@ -593,13 +595,13 @@ footer a:hover{color:#fff}
 <footer>
   <div class="wrap">
     NICE SHIRT &middot; The Second City Grad Revue &middot; Chicago e.t.c. Theater
-    <span class="ver">v0.6.0</span>
+    <span class="ver">v0.6.1</span>
     <div style="margin-top:8px"><a href="https://rizzo.cc/">rizzo.cc</a></div>
   </div>
 </footer>
 
 <script>
-const APP_VERSION = '0.6.0';
+const APP_VERSION = '0.6.1';
 document.title = 'NICE SHIRT v' + APP_VERSION + ' \u00b7 Second City Grad Revue \u00b7 Chicago Sketch & Improv';
 
 /* One entry per performance. Chicago time (CDT = -05:00 through early November). */
