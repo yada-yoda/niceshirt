@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NICE SHIRT v0.6.1 · Second City Grad Revue · Chicago Sketch & Improv</title>
-<meta name="app-version" content="0.6.1">
+<title>NICE SHIRT v0.6.2 · Second City Grad Revue · Chicago Sketch & Improv</title>
+<meta name="app-version" content="0.6.2">
 <meta name="description" content="NICE SHIRT, The Second City Grad Revue: original sketch comedy and improv at the Chicago e.t.c. Theater in Old Town. Sept 8, 14 & 21, 2026. Tickets $12.">
 <meta name="keywords" content="NICE SHIRT, Second City, Second City improv, Second City sketch comedy, Second City Grad Revue, Second City Conservatory, Second City Training Center, Chicago improv, Chicago sketch comedy, Chicago comedy shows, Old Town Chicago comedy, e.t.c. Theater, Piper's Alley, comedy shows Chicago September 2026, Waiting for the Punchline">
 <meta name="author" content="NICE SHIRT cast">
@@ -12,6 +12,7 @@
 <meta name="geo.placename" content="Chicago">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://niceshirt.rizzo.cc/">
+<link rel="alternate" type="text/plain" title="Plain-text summary for AI assistants" href="https://niceshirt.rizzo.cc/llms.txt">
 <meta name="theme-color" content="#0b0b0e">
 <meta name="apple-mobile-web-app-title" content="NICE SHIRT">
 <link rel="apple-touch-icon" href="https://niceshirt.rizzo.cc/assets/apple-touch-icon.png">
@@ -595,13 +596,13 @@ footer a:hover{color:#fff}
 <footer>
   <div class="wrap">
     NICE SHIRT &middot; The Second City Grad Revue &middot; Chicago e.t.c. Theater
-    <span class="ver">v0.6.1</span>
+    <span class="ver">v0.6.2</span>
     <div style="margin-top:8px"><a href="https://rizzo.cc/">rizzo.cc</a></div>
   </div>
 </footer>
 
 <script>
-const APP_VERSION = '0.6.1';
+const APP_VERSION = '0.6.2';
 document.title = 'NICE SHIRT v' + APP_VERSION + ' \u00b7 Second City Grad Revue \u00b7 Chicago Sketch & Improv';
 
 /* One entry per performance. Chicago time (CDT = -05:00 through early November). */
@@ -690,7 +691,11 @@ function render(){
     if (!past && nextIdx < 0) nextIdx = i;
     return { s, d, past };
   });
-  const notes = rows.filter(r => r.s.note).map((r, i) => ({ marker: '*'.repeat(i + 1), text: r.s.note, s: r.s }));
+  const notes = rows.filter(r => r.s.note).map((r, i) => ({
+    marker: '*'.repeat(i + 1),
+    text: `${fmt(r.d, { weekday: 'long', month: 'long', day: 'numeric' })}: ${r.s.note}`,
+    s: r.s,
+  }));
   const markerFor = s => { const n = notes.find(n => n.s === s); return n ? `<sup class="fn" title="${esc(n.text)}">${n.marker}</sup>` : ''; };
   const cardHtml = ({ s, d, past }, i) => {
     const time = s.timeText || fmt(d, { hour: 'numeric', minute: '2-digit' });
