@@ -1,3 +1,5 @@
 Thumbs.db
 .DS_Store
 README.md
+assets/hero/incoming/*
+!assets/hero/incoming/.gitkeep
