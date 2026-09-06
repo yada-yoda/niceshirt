@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NICE SHIRT v0.7.0 · Second City Grad Revue · Chicago Sketch & Improv</title>
-<meta name="app-version" content="0.7.0">
+<title>NICE SHIRT v0.7.1 · Second City Grad Revue · Chicago Sketch & Improv</title>
+<meta name="app-version" content="0.7.1">
 <meta name="description" content="NICE SHIRT, The Second City Grad Revue: original sketch comedy and improv at the Chicago e.t.c. Theater in Old Town. Sept 8, 14 & 21, 2026. Tickets $12.">
 <meta name="keywords" content="NICE SHIRT, Second City, Second City improv, Second City sketch comedy, Second City Grad Revue, Second City Conservatory, Second City Training Center, Chicago improv, Chicago sketch comedy, Chicago comedy shows, Old Town Chicago comedy, e.t.c. Theater, Piper's Alley, comedy shows Chicago September 2026, Waiting for the Punchline">
 <meta name="author" content="NICE SHIRT cast">
@@ -599,13 +599,13 @@ footer a:hover{color:#fff}
 <footer>
   <div class="wrap">
     NICE SHIRT &middot; The Second City Grad Revue &middot; Chicago e.t.c. Theater
-    <span class="ver">v0.7.0</span>
+    <span class="ver">v0.7.1</span>
     <div style="margin-top:8px"><a href="https://rizzo.cc/">rizzo.cc</a></div>
   </div>
 </footer>
 
 <script>
-const APP_VERSION = '0.7.0';
+const APP_VERSION = '0.7.1';
 document.title = 'NICE SHIRT v' + APP_VERSION + ' \u00b7 Second City Grad Revue \u00b7 Chicago Sketch & Improv';
 
 /* One entry per performance. Chicago time (CDT = -05:00 through early November). */
@@ -629,7 +629,8 @@ const RUN_MS = 3 * 60 * 60 * 1000; /* a show counts as "past" 3 hours after curt
    'hold' overrides how long an image stays (ms). Videos play once through, capped by VIDEO_MAX_MS. */
 const HERO_SLIDES = [
   { type: 'image', src: 'assets/marquee.jpg', pos: 'center 38%' },
-  // { type: 'video', src: 'assets/hero/etc-stage.mp4', webm: 'assets/hero/etc-stage.webm', poster: 'assets/hero/etc-stage.jpg', pos: 'center' },
+  { type: 'video', src: 'assets/hero/niceshirt-1.mp4', poster: 'assets/hero/niceshirt-1.jpg', pos: 'center' },
+  { type: 'video', src: 'assets/hero/niceshirt-2.mp4', poster: 'assets/hero/niceshirt-2.jpg', pos: 'center' },
 ];
 const IMAGE_HOLD_MS = 8000;
 const VIDEO_MAX_MS = 20000;
@@ -841,6 +842,8 @@ render();
       if (s.pos) v.style.objectPosition = s.pos;
       if (s.webm) { const w = document.createElement('source'); w.src = s.webm; w.type = 'video/webm'; v.appendChild(w); }
       const m = document.createElement('source'); m.src = s.src; m.type = 'video/mp4'; v.appendChild(m);
+      v.addEventListener('ended', () => { if (slides[i]._video === v) advance(); });
+      v.addEventListener('loadedmetadata', () => { if (slides[i]._video === v) schedule(); });
       el.appendChild(v);
       el._video = v;
     } else {
@@ -854,6 +857,7 @@ render();
   slides[0].classList.add('on');
   if (slides.length === 1 || reduce) { if (slides[0]._video) slides[0]._video.play().catch(() => {}); return; }
 
+  function advance() { show((i + 1) % slides.length); }
   function show(n) {
     const prev = slides[i], next = slides[n];
     i = n;
@@ -867,10 +871,11 @@ render();
     const cur = slides[i], spec = HERO_SLIDES[i];
     let hold = spec.hold || IMAGE_HOLD_MS;
     if (cur._video) {
-      const d = isFinite(cur._video.duration) && cur._video.duration > 0 ? cur._video.duration * 1000 : VIDEO_MAX_MS;
-      hold = Math.min(d, VIDEO_MAX_MS);
+      const d = cur._video.duration;
+      /* real length once metadata is in (the 'ended' event fires first anyway); the cap is a safety net */
+      hold = isFinite(d) && d > 0 ? Math.min(d * 1000, VIDEO_MAX_MS) : VIDEO_MAX_MS;
     }
-    timer = setTimeout(() => show((i + 1) % slides.length), hold);
+    timer = setTimeout(advance, hold);
   }
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) { clearTimeout(timer); if (slides[i]._video) slides[i]._video.pause(); }
