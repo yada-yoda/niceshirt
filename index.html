@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NICE SHIRT v0.7.1 · Second City Grad Revue · Chicago Sketch & Improv</title>
-<meta name="app-version" content="0.7.1">
+<title>NICE SHIRT v0.7.2 · Second City Grad Revue · Chicago Sketch & Improv</title>
+<meta name="app-version" content="0.7.2">
 <meta name="description" content="NICE SHIRT, The Second City Grad Revue: original sketch comedy and improv at the Chicago e.t.c. Theater in Old Town. Sept 8, 14 & 21, 2026. Tickets $12.">
 <meta name="keywords" content="NICE SHIRT, Second City, Second City improv, Second City sketch comedy, Second City Grad Revue, Second City Conservatory, Second City Training Center, Chicago improv, Chicago sketch comedy, Chicago comedy shows, Old Town Chicago comedy, e.t.c. Theater, Piper's Alley, comedy shows Chicago September 2026, Waiting for the Punchline">
 <meta name="author" content="NICE SHIRT cast">
@@ -126,6 +126,18 @@ a{color:var(--blue-2)}
   background-position:center;background-size:cover;background-repeat:no-repeat;
 }
 .hero .slide.on{opacity:.28}
+.hero .slide.video.on{opacity:.36}
+.hero .dots{
+  position:absolute;left:0;right:0;bottom:14px;z-index:2;
+  display:flex;justify-content:center;gap:8px;
+}
+.hero .dots button{
+  width:9px;height:9px;padding:0;border-radius:50%;border:1px solid rgba(255,255,255,.55);
+  background:rgba(255,255,255,.18);cursor:pointer;transition:background .2s ease,transform .2s ease;
+}
+.hero .dots button:hover{background:rgba(255,255,255,.5)}
+.hero .dots button.on{background:var(--blue);border-color:var(--blue);transform:scale(1.25)}
+.hero .dots button.video::after{content:"";display:block;width:0;height:0;margin:1px 0 0 2.5px;border-style:solid;border-width:2.5px 0 2.5px 4px;border-color:transparent transparent transparent #06101c}
 .hero .slide video{width:100%;height:100%;object-fit:cover;display:block}
 .hero .bg::after{
   content:"";position:absolute;inset:0;
@@ -399,6 +411,7 @@ footer a:hover{color:#fff}
 <main id="top">
   <section class="hero">
     <div class="bg" aria-hidden="true"></div>
+    <div class="dots" id="hero-dots" role="tablist" aria-label="Background slides"></div>
     <div class="wrap">
       <span class="kicker">The Second City Training Center presents</span>
       <h1 class="title">NICE SHIRT</h1>
@@ -599,13 +612,13 @@ footer a:hover{color:#fff}
 <footer>
   <div class="wrap">
     NICE SHIRT &middot; The Second City Grad Revue &middot; Chicago e.t.c. Theater
-    <span class="ver">v0.7.1</span>
+    <span class="ver">v0.7.2</span>
     <div style="margin-top:8px"><a href="https://rizzo.cc/">rizzo.cc</a></div>
   </div>
 </footer>
 
 <script>
-const APP_VERSION = '0.7.1';
+const APP_VERSION = '0.7.2';
 document.title = 'NICE SHIRT v' + APP_VERSION + ' \u00b7 Second City Grad Revue \u00b7 Chicago Sketch & Improv';
 
 /* One entry per performance. Chicago time (CDT = -05:00 through early November). */
@@ -833,7 +846,7 @@ render();
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches && !new URLSearchParams(location.search).has('motion');
   const slides = HERO_SLIDES.map((s, i) => {
     const el = document.createElement('div');
-    el.className = 'slide';
+    el.className = 'slide' + (s.type === 'video' ? ' video' : '');
     if (s.type === 'video' && !reduce) {
       const v = document.createElement('video');
       v.muted = true; v.playsInline = true; v.loop = false; v.preload = i === 0 ? 'auto' : 'metadata';
@@ -854,17 +867,30 @@ render();
     return el;
   });
   let i = 0, timer = null;
+  const dotsBox = document.getElementById('hero-dots');
+  const dots = HERO_SLIDES.map((s, n) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = s.type === 'video' ? 'video' : '';
+    b.setAttribute('role', 'tab'); b.setAttribute('aria-label', `Slide ${n + 1}${s.type === 'video' ? ' (video)' : ''}`);
+    b.addEventListener('click', () => { if (n !== i) show(n); });
+    dotsBox.appendChild(b);
+    return b;
+  });
+  const syncDots = () => dots.forEach((b, n) => { b.classList.toggle('on', n === i); b.setAttribute('aria-selected', n === i); });
   slides[0].classList.add('on');
-  if (slides.length === 1 || reduce) { if (slides[0]._video) slides[0]._video.play().catch(() => {}); return; }
+  syncDots();
+  if (slides.length === 1) { dotsBox.remove(); if (slides[0]._video) slides[0]._video.play().catch(() => {}); return; }
+  if (reduce) return;
 
   function advance() { show((i + 1) % slides.length); }
   function show(n) {
     const prev = slides[i], next = slides[n];
     i = n;
     next.classList.add('on');
+    syncDots();
     if (next._video) { next._video.currentTime = 0; next._video.play().catch(() => {}); }
     setTimeout(() => { prev.classList.remove('on'); if (prev._video) prev._video.pause(); }, 1400);
-    schedule();
+    if (!reduce) schedule();
   }
   function schedule() {
     clearTimeout(timer);
