@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NICE SHIRT v0.7.2 · Second City Grad Revue · Chicago Sketch & Improv</title>
-<meta name="app-version" content="0.7.2">
+<title>NICE SHIRT v0.7.3 · Second City Grad Revue · Chicago Sketch & Improv</title>
+<meta name="app-version" content="0.7.3">
 <meta name="description" content="NICE SHIRT, The Second City Grad Revue: original sketch comedy and improv at the Chicago e.t.c. Theater in Old Town. Sept 8, 14 & 21, 2026. Tickets $12.">
 <meta name="keywords" content="NICE SHIRT, Second City, Second City improv, Second City sketch comedy, Second City Grad Revue, Second City Conservatory, Second City Training Center, Chicago improv, Chicago sketch comedy, Chicago comedy shows, Old Town Chicago comedy, e.t.c. Theater, Piper's Alley, comedy shows Chicago September 2026, Waiting for the Punchline">
 <meta name="author" content="NICE SHIRT cast">
@@ -143,7 +143,7 @@ a{color:var(--blue-2)}
   content:"";position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(11,11,14,.35) 0%,rgba(11,11,14,.55) 55%,var(--bg) 100%);
 }
-@media (prefers-reduced-motion:reduce){.hero .slide{transition:none}}
+@media (prefers-reduced-motion:reduce){.hero .slide{transition:opacity .6s ease}}
 .hero .wrap{position:relative;z-index:1}
 .kicker{
   display:inline-block;font-size:12px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;
@@ -612,13 +612,13 @@ footer a:hover{color:#fff}
 <footer>
   <div class="wrap">
     NICE SHIRT &middot; The Second City Grad Revue &middot; Chicago e.t.c. Theater
-    <span class="ver">v0.7.2</span>
+    <span class="ver">v0.7.3</span>
     <div style="margin-top:8px"><a href="https://rizzo.cc/">rizzo.cc</a></div>
   </div>
 </footer>
 
 <script>
-const APP_VERSION = '0.7.2';
+const APP_VERSION = '0.7.3';
 document.title = 'NICE SHIRT v' + APP_VERSION + ' \u00b7 Second City Grad Revue \u00b7 Chicago Sketch & Improv';
 
 /* One entry per performance. Chicago time (CDT = -05:00 through early November). */
@@ -842,8 +842,9 @@ render();
 (function heroSlideshow() {
   const bg = document.querySelector('.hero .bg');
   if (!bg || !HERO_SLIDES.length) return;
-  /* Honors the OS "reduce motion" setting: first slide only, no video. ?motion=1 overrides it for testing. */
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches && !new URLSearchParams(location.search).has('motion');
+  /* Same call as rizzo.cc: a slow crossfade is gentle, so the rotation stays on even with the OS
+     "reduce motion" setting (the fade just gets quicker). ?motion=0 pins the first slide. */
+  const reduce = new URLSearchParams(location.search).get('motion') === '0';
   const slides = HERO_SLIDES.map((s, i) => {
     const el = document.createElement('div');
     el.className = 'slide' + (s.type === 'video' ? ' video' : '');
