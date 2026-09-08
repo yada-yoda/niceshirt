@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NICE SHIRT v0.7.3 · Second City Grad Revue · Chicago Sketch & Improv</title>
-<meta name="app-version" content="0.7.3">
+<title>NICE SHIRT v0.8.0 · Second City Grad Revue · Chicago Sketch & Improv</title>
+<meta name="app-version" content="0.8.0">
 <meta name="description" content="NICE SHIRT, The Second City Grad Revue: original sketch comedy and improv at the Chicago e.t.c. Theater in Old Town. Sept 8, 14 & 21, 2026. Tickets $12.">
 <meta name="keywords" content="NICE SHIRT, Second City, Second City improv, Second City sketch comedy, Second City Grad Revue, Second City Conservatory, Second City Training Center, Chicago improv, Chicago sketch comedy, Chicago comedy shows, Old Town Chicago comedy, e.t.c. Theater, Piper's Alley, comedy shows Chicago September 2026, Waiting for the Punchline">
 <meta name="author" content="NICE SHIRT cast">
@@ -388,6 +388,12 @@ footer .ver{
   display:inline-block;margin-left:8px;padding:2px 8px;border-radius:999px;
   background:rgba(255,255,255,.06);font-size:11px;letter-spacing:.08em;color:var(--dim);
 }
+footer .hits{
+  display:inline-block;margin-left:6px;padding:2px 8px;border-radius:999px;
+  background:rgba(255,255,255,.06);font-size:11px;letter-spacing:.08em;color:var(--dim);
+  font-variant-numeric:tabular-nums;cursor:default;
+}
+footer .hits[hidden]{display:none}
 footer a{color:var(--muted);text-decoration:none}
 footer a:hover{color:#fff}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -612,13 +618,34 @@ footer a:hover{color:#fff}
 <footer>
   <div class="wrap">
     NICE SHIRT &middot; The Second City Grad Revue &middot; Chicago e.t.c. Theater
-    <span class="ver">v0.7.3</span>
+    <span class="ver">v0.8.0</span><span class="hits" id="hits" hidden></span>
     <div style="margin-top:8px"><a href="https://rizzo.cc/">rizzo.cc</a></div>
   </div>
 </footer>
 
 <script>
-const APP_VERSION = '0.7.3';
+const APP_VERSION = '0.8.0';
+
+/* Footer visit counter (hits-worker, a Cloudflare Durable Object per site). One count per browser
+   session; devices opted out of GA with ?ga=off are not counted; the pill stays hidden if the
+   worker can't be reached. The count was seeded from GA history when the counter went in. */
+(function () {
+  const el = document.getElementById('hits');
+  if (!el) return;
+  let counted = false, optout = false;
+  try { counted = sessionStorage.getItem('hit') === '1'; optout = localStorage.getItem('ga_optout') === '1'; } catch (e) {}
+  const bump = !counted && !optout;
+  fetch('https://hits-worker.sevendwarfs.workers.dev/hit/niceshirt', { method: bump ? 'POST' : 'GET' })
+    .then(r => (r.ok ? r.json() : null))
+    .then(d => {
+      if (!d || typeof d.count !== 'number') return;
+      if (bump) { try { sessionStorage.setItem('hit', '1'); } catch (e) {} }
+      el.textContent = d.count.toLocaleString('en-US') + (d.count === 1 ? ' visit' : ' visits');
+      el.title = 'Visits since the site went up on Sept 2, 2026. Counted once per browser session.';
+      el.hidden = false;
+    })
+    .catch(() => {});
+})();
 document.title = 'NICE SHIRT v' + APP_VERSION + ' \u00b7 Second City Grad Revue \u00b7 Chicago Sketch & Improv';
 
 /* One entry per performance. Chicago time (CDT = -05:00 through early November). */
