@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NICE SHIRT v0.8.0 · Second City Grad Revue · Chicago Sketch & Improv</title>
-<meta name="app-version" content="0.8.0">
+<title>NICE SHIRT v0.8.1 · Second City Grad Revue · Chicago Sketch & Improv</title>
+<meta name="app-version" content="0.8.1">
 <meta name="description" content="NICE SHIRT, The Second City Grad Revue: original sketch comedy and improv at the Chicago e.t.c. Theater in Old Town. Sept 8, 14 & 21, 2026. Tickets $12.">
 <meta name="keywords" content="NICE SHIRT, Second City, Second City improv, Second City sketch comedy, Second City Grad Revue, Second City Conservatory, Second City Training Center, Chicago improv, Chicago sketch comedy, Chicago comedy shows, Old Town Chicago comedy, e.t.c. Theater, Piper's Alley, comedy shows Chicago September 2026, Waiting for the Punchline">
 <meta name="author" content="NICE SHIRT cast">
@@ -333,10 +333,13 @@ dialog.bio::backdrop{background:rgba(0,0,0,.7);backdrop-filter:blur(3px)}
 .defs li{color:var(--muted)}
 .defs b{color:#fff;display:block;font-size:14px;letter-spacing:.04em}
 .extras{margin-top:24px}
-.promo-imgs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.promo-imgs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
+.promo-imgs .wide{grid-column:1 / -1}
 .promo-imgs a{display:block;border-radius:10px;overflow:hidden;border:1px solid var(--line-2);transition:border-color .15s ease,transform .15s ease}
 .promo-imgs a:hover{border-color:var(--blue);transform:translateY(-2px)}
 .promo-imgs img{width:100%;height:auto}
+.promo-imgs a:not(.wide) img{aspect-ratio:3/4;height:100%;object-fit:cover}
+.promo-imgs a:not(.wide){display:flex}
 
 /* ---------- venue ---------- */
 .venue{columns:2;column-gap:24px}
@@ -514,8 +517,10 @@ footer a:hover{color:#fff}
       <div class="about extras">
         <div class="card">
           <h3>Promo</h3>
-          <p>Unofficial art made for the run. Tap to open full size.</p>
+          <p>Flyers and art made for the run. Tap to open full size.</p>
           <div class="promo-imgs">
+            <a class="wide" href="assets/flyer-wide.jpg" target="_blank" rel="noopener" title="Open the full-size flyer"><img src="assets/flyer-wide-thumb.jpg" alt="NICE SHIRT flyer, wide: the nine cast members with the creative team and show dates" loading="lazy" width="900" height="502"></a>
+            <a href="assets/flyer-tall.jpg" target="_blank" rel="noopener" title="Open the full-size poster"><img src="assets/flyer-tall-thumb.jpg" alt="NICE SHIRT poster, tall: the nine cast members with the creative team and show dates" loading="lazy" width="604" height="900"></a>
             <a href="assets/playbill.jpg" target="_blank" rel="noopener" title="Open the full-size Playbill"><img src="assets/playbill.jpg" alt="NICE SHIRT Playbill: cast headshots, creative team and show dates" loading="lazy" width="900" height="1164"></a>
             <a href="assets/marquee.jpg" target="_blank" rel="noopener" title="Open the full-size marquee"><img src="assets/marquee.jpg" alt="The Second City marquee reading NICE SHIRT with the show dates" loading="lazy" width="1122" height="1402"></a>
           </div>
@@ -618,13 +623,13 @@ footer a:hover{color:#fff}
 <footer>
   <div class="wrap">
     NICE SHIRT &middot; The Second City Grad Revue &middot; Chicago e.t.c. Theater
-    <span class="ver">v0.8.0</span><span class="hits" id="hits" hidden></span>
+    <span class="ver">v0.8.1</span><span class="hits" id="hits" hidden></span>
     <div style="margin-top:8px"><a href="https://rizzo.cc/">rizzo.cc</a></div>
   </div>
 </footer>
 
 <script>
-const APP_VERSION = '0.8.0';
+const APP_VERSION = '0.8.1';
 
 /* Footer visit counter (hits-worker, a Cloudflare Durable Object per site). One count per browser
    session; devices opted out of GA with ?ga=off are not counted; the pill stays hidden if the

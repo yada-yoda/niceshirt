@@ -3,3 +3,4 @@ Thumbs.db
 README.md
 assets/hero/incoming/*
 !assets/hero/incoming/.gitkeep
+assets/incoming/

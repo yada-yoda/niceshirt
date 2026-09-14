@@ -2,11 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://niceshirt.rizzo.cc/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image><image:loc>https://niceshirt.rizzo.cc/assets/og.png</image:loc><image:title>NICE SHIRT, The Second City Grad Revue</image:title></image:image>
     <image:image><image:loc>https://niceshirt.rizzo.cc/assets/event-1x1.png</image:loc><image:title>NICE SHIRT, The Second City Grad Revue</image:title></image:image>
+    <image:image><image:loc>https://niceshirt.rizzo.cc/assets/flyer-wide.jpg</image:loc><image:title>NICE SHIRT flyer with the cast and show dates</image:title></image:image>
+    <image:image><image:loc>https://niceshirt.rizzo.cc/assets/flyer-tall.jpg</image:loc><image:title>NICE SHIRT poster with the cast and show dates</image:title></image:image>
     <image:image><image:loc>https://niceshirt.rizzo.cc/assets/playbill.jpg</image:loc><image:title>NICE SHIRT Playbill with the cast</image:title></image:image>
     <image:image><image:loc>https://niceshirt.rizzo.cc/assets/marquee.jpg</image:loc><image:title>The Second City marquee with NICE SHIRT show dates</image:title></image:image>
   </url>
