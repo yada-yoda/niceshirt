@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NICE SHIRT v0.8.3 · Second City Grad Revue · Chicago Sketch & Improv</title>
-<meta name="app-version" content="0.8.3">
+<title>NICE SHIRT · Second City Grad Revue · Chicago Sketch & Improv · v0.8.4</title>
+<meta name="app-version" content="0.8.4">
 <meta name="description" content="NICE SHIRT, The Second City Grad Revue: original sketch comedy and improv at the Chicago e.t.c. Theater in Old Town. Sept 8, 14 & 21, 2026. Tickets $12.">
 <meta name="keywords" content="NICE SHIRT, Second City, Second City improv, Second City sketch comedy, Second City Grad Revue, Second City Conservatory, Second City Training Center, Chicago improv, Chicago sketch comedy, Chicago comedy shows, Old Town Chicago comedy, e.t.c. Theater, Piper's Alley, comedy shows Chicago September 2026, Waiting for the Punchline">
 <meta name="author" content="NICE SHIRT cast">
@@ -109,8 +109,10 @@ a{color:var(--blue-2)}
 .nav a:hover{color:#fff;background:rgba(255,255,255,.06)}
 .nav a.cta{background:var(--blue);color:#06101c}
 .nav a.cta:hover{background:var(--blue-2);color:#06101c}
-@media (max-width:640px){.nav{gap:2px}.nav a{font-size:11px;padding:7px 7px;letter-spacing:.1em}.brand{font-size:19px}.brand small{font-size:9px;letter-spacing:.2em}}
-@media (max-width:480px){.top .wrap{gap:8px;min-height:52px}.nav{gap:0}.nav a{padding:7px 5px;letter-spacing:.06em}.nav a.cta{padding:7px 9px}.brand small{display:none}}
+/* six nav links on one row: compact under 730, tight under 560, FAQ link drops under 440 (widths measured, not guessed) */
+@media (max-width:730px){.nav{gap:2px}.nav a{font-size:11px;padding:7px 5px;letter-spacing:.06em}.brand{font-size:19px}.brand small{font-size:9px;letter-spacing:.2em}}
+@media (max-width:560px){.top .wrap{gap:6px;min-height:52px}.nav{gap:0}.nav a{font-size:10px;padding:7px 4px;letter-spacing:.03em}.nav a.cta{padding:7px 7px}.brand small{display:none}}
+@media (max-width:440px){.top .wrap{padding-left:14px;padding-right:14px}.nav a{padding:7px 3px}.nav a.cta{padding:7px 6px}.nav a[href="#faq"]{display:none}}
 
 /* ---------- hero ---------- */
 .hero{
@@ -385,6 +387,25 @@ dialog.bio::backdrop{background:rgba(0,0,0,.7);backdrop-filter:blur(3px)}
 .faq[open] summary::after{content:"\2013"}
 .faq p{color:var(--muted);padding:0 0 16px}
 
+/* ---------- news ---------- */
+.news{display:grid;grid-template-columns:1fr;gap:16px;max-width:960px}
+@media (min-width:700px){.news{grid-template-columns:1fr 1fr}}
+.story{
+  display:flex;flex-direction:column;gap:10px;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;
+}
+.story .src{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px;color:var(--dim);letter-spacing:.02em}
+.story .src .outlet{font-weight:700;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;font-size:11px}
+.story .src .tag{margin-left:auto;padding:2px 8px;border-radius:999px;background:rgba(74,168,255,.12);color:var(--blue);font-size:11px;font-weight:700;letter-spacing:.06em}
+.story h3{font-size:18px;line-height:1.3;font-weight:800}
+.story h3 a{color:#fff;text-decoration:none}
+.story h3 a:hover{color:var(--blue)}
+.story p{color:var(--muted);font-size:15px;flex:1}
+.story .more{align-self:flex-start;font-weight:700;font-size:14px;color:var(--blue);text-decoration:none}
+.story .more:hover{text-decoration:underline}
+.inline-bio{background:none;border:0;padding:0;margin:0;font:inherit;color:var(--blue);cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px}
+.inline-bio:hover{color:#fff}
+
 /* ---------- footer ---------- */
 footer{border-top:1px solid var(--line);padding:34px 0 44px;text-align:center;color:var(--dim);font-size:13px}
 footer .ver{
@@ -410,6 +431,7 @@ footer a:hover{color:#fff}
     <nav class="nav" aria-label="Sections">
       <a href="#cast">Cast</a>
       <a href="#about">About</a>
+      <a href="#news">News</a>
       <a href="#venue">Venue</a>
       <a href="#faq">FAQ</a>
       <a class="cta" href="#tickets">Tickets</a>
@@ -543,6 +565,28 @@ footer a:hover{color:#fff}
     </div>
   </section>
 
+  <section id="news">
+    <div class="wrap">
+      <div class="eyebrow">Press</div>
+      <h2>In the <span class="accent">news</span></h2>
+      <p class="lead">Coverage of the show and its cast. Short excerpts here; each headline links to the full article.</p>
+      <div class="news">
+        <article class="story">
+          <div class="src"><span class="outlet">BroadwayWorld</span><time datetime="2026-09-15">Sept 15, 2026</time><span class="tag">The show</span></div>
+          <h3><a href="https://www.broadwayworld.com/chicago/article/NICE-SHIRT-to-Play-Closing-Performance-at-The-Second-City-20260915" target="_blank" rel="noopener">NICE SHIRT to Play Closing Performance at The Second City</a></h3>
+          <p>BroadwayWorld Chicago picked up the closing-night announcement: Monday, September 21 at the e.t.c. Theater, with WAITING FOR THE PUNCHLINE at 7:00 PM and NICE SHIRT at 8:30 PM. The piece runs through the full nine-person ensemble and the creative team, and describes the revue as original scenes, songs, blackouts and live improvisation built over weeks of process shows.</p>
+          <a class="more" href="https://www.broadwayworld.com/chicago/article/NICE-SHIRT-to-Play-Closing-Performance-at-The-Second-City-20260915" target="_blank" rel="noopener">Read it on BroadwayWorld &rarr;</a>
+        </article>
+        <article class="story">
+          <div class="src"><span class="outlet">Forbes</span><time datetime="2026-08-31">Aug 31, 2026</time><span class="tag">Cast</span></div>
+          <h3><a href="https://www.forbes.com/sites/rickellis/2026/08/31/chicago-cubs-announce-tiktok-rom-com-nine-innings-to-love/" target="_blank" rel="noopener">Chicago Cubs Announce TikTok Rom-Com &lsquo;Nine Innings To Love&rsquo;</a></h3>
+          <p>NICE SHIRT cast member <button type="button" class="inline-bio" data-bio="Cole Steeves" data-photo="assets/cast/cole-steeves.jpg" title="Read Cole's bio">Cole Steeves</button> stars in the Chicago Cubs&rsquo; first scripted series: a 17-episode rom-com set over one game in the Wrigley Field bleachers, made by Cubs Productions for the team&rsquo;s TikTok channel and premiered September 4. Forbes lists him alongside leads Veronica Garrubbo and Sid Kutikkad, with Angelina D&aacute;vila, Kevin Kantor and Shelby Brown.</p>
+          <a class="more" href="https://www.forbes.com/sites/rickellis/2026/08/31/chicago-cubs-announce-tiktok-rom-com-nine-innings-to-love/" target="_blank" rel="noopener">Read it on Forbes &rarr;</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section id="venue">
     <div class="wrap">
       <div class="eyebrow">Where</div>
@@ -623,13 +667,13 @@ footer a:hover{color:#fff}
 <footer>
   <div class="wrap">
     NICE SHIRT &middot; The Second City Grad Revue &middot; Chicago e.t.c. Theater
-    <span class="ver">v0.8.3</span><span class="hits" id="hits" hidden></span>
+    <span class="ver">v0.8.4</span><span class="hits" id="hits" hidden></span>
     <div style="margin-top:8px"><a href="https://rizzo.cc/">rizzo.cc</a></div>
   </div>
 </footer>
 
 <script>
-const APP_VERSION = '0.8.3';
+const APP_VERSION = '0.8.4';
 
 /* Footer visit counter (hits-worker, a Cloudflare Durable Object per site). One count per browser
    session; devices opted out of GA with ?ga=off are not counted; the pill stays hidden if the
@@ -651,7 +695,7 @@ const APP_VERSION = '0.8.3';
     })
     .catch(() => {});
 })();
-document.title = 'NICE SHIRT v' + APP_VERSION + ' \u00b7 Second City Grad Revue \u00b7 Chicago Sketch & Improv';
+document.title = 'NICE SHIRT \u00b7 Second City Grad Revue \u00b7 Chicago Sketch & Improv \u00b7 v' + APP_VERSION;
 
 /* One entry per performance. Chicago time (CDT = -05:00 through early November). */
 const SHOWS = [
@@ -720,7 +764,7 @@ const BIOS = {
   'Joshua Hogan': { pronouns:'he/him', role:'NICE SHIRT cast', text:['Joshua Hogan is a Chicago based performer and Indiana University Alum. Josh does work across all platforms including on stage with Jeff nominated comedy "Die Hard 4 Your Luv" (Factory Theater), "Monger" (Chicago Dramatists), voice acting with Audie awarded SAG production "The Ernie Pyle Experiment", sketch shows "The Breakfast Klerb" (Second City Writing 6 Show), "New Kids On The Blockbuster" (Second City Sketch Ensembles), film work including too many indie horror/cult movies, and commercial work on "The Bear", "Harry Potter Store Chicago", and "Six Flags Great America".','Outside of performing Josh loves scuba diving, rock climbing, and painting. Joshua is represented by BNB Chicago and a proud member of AEA and PBK.'], links:[['Instagram @hoshjogan','https://www.instagram.com/hoshjogan/']] },
   'Ben House': { role:'NICE SHIRT cast', text:['Ben House is a Comedian from Chicago, Illinois! He performs sketch, standup, and improv in various theaters around the city such as the iO, Annoyance Theater, and Second City. Ben wants to dedicate a special thanks to his partner Emma, family, coworkers, friends, magic the gathering commander pod, and cats for believing in him. He is very excited to work with a cast that values the power of stupid.'] },
   'Frank Rizzo': { pronouns:'he/him', role:'NICE SHIRT cast', text:['Frank Rizzo is a Chicago-based actor and improviser of Italian-Irish descent with a background in marketing and computer science. He has trained at The Second City and Acting Studio Chicago. Inspired by Cassavetes, Kubrick, Bergman, Seinfeld, and mockumentary comedy, Frank brings grounded characters, sharp instincts, and the belief that improv is one giant inside joke among friends, whether the audience realizes they\'ve been included or not. He appears in the short mockumentary Waiter Boys (2025) alongside former classmates from earlier in his improv training.'], links:[['Actor site rizzo.cc','https://rizzo.cc/'],['Instagram @heyfrank','https://www.instagram.com/heyfrank/']] },
-  'Cole Steeves': { pronouns:'he/him', role:'NICE SHIRT cast', text:['Cole Steeves is an actor with experience across theater, film, commercial and interactive work. He earned his BFA in Acting from The Theatre School at DePaul University. A multi-platform performer, Steeves has appeared on stage and on screen, with credits including Candle House Collective\'s interactive thriller Claws and State Farm\'s Rookie Move campaign. FUN FACT! Cole was born in Salem, Massachusetts on July 13th, and was raised on Gallows Hill!'] },
+  'Cole Steeves': { pronouns:'he/him', role:'NICE SHIRT cast', text:['Cole Steeves is an actor with experience across theater, film, commercial and interactive work. He earned his BFA in Acting from The Theatre School at DePaul University. A multi-platform performer, Steeves has appeared on stage and on screen, with credits including Candle House Collective\'s interactive thriller Claws and State Farm\'s Rookie Move campaign. FUN FACT! Cole was born in Salem, Massachusetts on July 13th, and was raised on Gallows Hill!', 'In 2026 Cole also stars in Nine Innings To Love, the Chicago Cubs\' 17-episode TikTok rom-com set in the Wrigley Field bleachers (see In the news).'] },
   'Primula Stonebraker': { pronouns:'she/her', role:'NICE SHIRT cast', text:['Prim Stonebraker is a comedian and writer from Kansas City, Missouri. She performs regularly throughout Chicago and is a member of The Wretched and iO Theater\'s first-ever Sketch House Team. She studied Digital Storytelling at Mizzou and is currently looking for a job. See photos of her English Bulldog on Instagram.'], links:[['Instagram @primstonebraker','https://www.instagram.com/primstonebraker/']] },
 
   'Madeline Blasingame': { pronouns:'she/her', role:'WAITING FOR THE PUNCHLINE cast', text:['Maddy Blasingame was born and raised in Minnesota and got her start as a member of the improv troupe Identity Crisis at UCLA. After earning her degree in Statistics and Data Science, she pursued her childhood dream of becoming an insurance professional. Before coming to The Second City she performed at HUGE Improv Theater in Minneapolis. When she isn\'t working in Excel or performing, she can be found drinking coffee, spending time with friends, or at the beach.'], links:[['Instagram @maddyb100','https://www.instagram.com/maddyb100/']] },
