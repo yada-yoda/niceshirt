@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NICE SHIRT · The Second City Conservatory Show · Chicago Sketch & Improv · v0.8.6</title>
-<meta name="app-version" content="0.8.6">
+<title>NICE SHIRT · The Second City Conservatory Show · Chicago Sketch & Improv · v0.8.7</title>
+<meta name="app-version" content="0.8.7">
 <meta name="description" content="NICE SHIRT, The Second City Conservatory Show: original sketch comedy and improv at the Chicago e.t.c. Theater in Old Town. Sept 8, 14 & 21, 2026. Tickets $12.">
 <meta name="keywords" content="NICE SHIRT, Second City, Second City improv, Second City sketch comedy, Second City Grad Revue, Second City Conservatory, Second City Training Center, Chicago improv, Chicago sketch comedy, Chicago comedy shows, Old Town Chicago comedy, e.t.c. Theater, Piper's Alley, comedy shows Chicago September 2026, Waiting for the Punchline">
 <meta name="author" content="NICE SHIRT cast">
@@ -667,13 +667,13 @@ footer a:hover{color:#fff}
 <footer>
   <div class="wrap">
     NICE SHIRT &middot; The Second City Conservatory Show &middot; Chicago e.t.c. Theater
-    <span class="ver">v0.8.6</span><span class="hits" id="hits" hidden></span>
+    <span class="ver">v0.8.7</span><span class="hits" id="hits" hidden></span>
     <div style="margin-top:8px"><a href="https://rizzo.cc/">rizzo.cc</a></div>
   </div>
 </footer>
 
 <script>
-const APP_VERSION = '0.8.6';
+const APP_VERSION = '0.8.7';
 
 /* Footer visit counter (hits-worker, a Cloudflare Durable Object per site). One count per browser
    session; devices opted out of GA with ?ga=off are not counted; the pill stays hidden if the
@@ -718,8 +718,11 @@ const RUN_MS = 3 * 60 * 60 * 1000; /* a show counts as "past" 3 hours after curt
    'hold' overrides how long an image stays (ms). Videos play once through, capped by VIDEO_MAX_MS. */
 const HERO_SLIDES = [
   { type: 'image', src: 'assets/marquee.jpg', pos: 'center 38%' },
+  { type: 'image', src: 'assets/hero/stage-1.jpg', pos: 'center 40%' },
   { type: 'video', src: 'assets/hero/niceshirt-1.mp4', poster: 'assets/hero/niceshirt-1.jpg', pos: 'center' },
+  { type: 'image', src: 'assets/hero/stage-2.jpg', pos: 'center 35%' },
   { type: 'video', src: 'assets/hero/niceshirt-2.mp4', poster: 'assets/hero/niceshirt-2.jpg', pos: 'center' },
+  { type: 'image', src: 'assets/hero/stage-3.jpg', pos: 'center 40%' },
 ];
 const IMAGE_HOLD_MS = 8000;
 const VIDEO_MAX_MS = 20000;
